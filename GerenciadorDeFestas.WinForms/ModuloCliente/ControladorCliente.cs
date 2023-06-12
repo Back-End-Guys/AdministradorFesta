@@ -1,40 +1,122 @@
-﻿using GerenciadorDeFestas.WinForms.Compartilhado;
+﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
     public class ControladorCliente : ControladorBase
     {
-        public override string ToolTipInserir => throw new NotImplementedException();
 
-        public override string ToolTipEditar => throw new NotImplementedException();
+        private IRepositorioCliente repositorioCliente;
+        private TabelaClienteControl tabelaCliente;
 
-        public override string ToolTipExcluir => throw new NotImplementedException();
+        public ControladorCliente(IRepositorioCliente repositorioCliente)
+        {
+            this.repositorioCliente = repositorioCliente;
+        }
 
-        public override string ToolTipPagamento => throw new NotImplementedException();
+        public override string ToolTipInserir { get { return "Inserir novo Cliente"; } }
+
+        public override string ToolTipEditar { get { return "Editar Cliente existente"; } }
+
+        public override string ToolTipExcluir { get { return "Excluir Cliente existente"; } }
+
+        public override void Inserir()
+        {
+            TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente.SelecionarTodos());
+
+            DialogResult opcaoEscolhida = telaCliente.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Cliente cliente = telaCliente.ObterCliente();
+
+                repositorioCliente.Inserir(cliente);
+
+                CarregarClientes();
+            }
+        }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Cliente clienteSelecionado = ObterClienteSelecionado();
+
+            if (clienteSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um cliente primeiro!",
+                    "Edição de Clientes",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente.SelecionarTodos());
+            telaCliente.ConfigurarTela(clienteSelecionado);
+
+            DialogResult opcaoEscolhida = telaCliente.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Cliente cliente = telaCliente.ObterCliente();
+
+                repositorioCliente.Editar(cliente.id, cliente);
+
+                CarregarClientes();
+            }
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Cliente cliente = ObterClienteSelecionado();
+
+            if (cliente == null)
+            {
+                MessageBox.Show($"Selecione um cliente primeiro!",
+                    "Exclusão de Clientes",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente {cliente.nome}?", "Exclusão de Clientes",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioCliente.Excluir(cliente);
+
+                CarregarClientes();
+            }
         }
 
-        public override void Inserir()
+        private Cliente ObterClienteSelecionado()
         {
-            throw new NotImplementedException();
+            int id = tabelaCliente.ObterIdSelecionado();
+
+            return repositorioCliente.SelecionarPorId(id);
+        }
+
+        private void CarregarClientes()
+        {
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+
+            tabelaCliente.AtualizarRegistros(clientes);
         }
 
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (tabelaCliente == null)
+                tabelaCliente = new TabelaClienteControl();
+
+            CarregarClientes();
+
+            return tabelaCliente;
         }
 
         public override string ObterTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Clientes";
         }
     }
 }

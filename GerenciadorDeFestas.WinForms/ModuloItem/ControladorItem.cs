@@ -1,40 +1,120 @@
-﻿using GerenciadorDeFestas.WinForms.Compartilhado;
+﻿using GerenciadorDeFestas.Dominio.ModuloItem;
+using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloItem
 {
     public class ControladorItem : ControladorBase
     {
-        public override string ToolTipInserir => throw new NotImplementedException();
+        IRepositorioItem repositorioItem;
+        TabelaItemControl tabelaItem;
 
-        public override string ToolTipEditar => throw new NotImplementedException();
+        public ControladorItem(IRepositorioItem repositorioItem)
+        {
+            this.repositorioItem = repositorioItem;
+        }
 
-        public override string ToolTipExcluir => throw new NotImplementedException();
+        public override string ToolTipInserir => "Inserir novo item";
 
-        public override string ToolTipPagamento => throw new NotImplementedException();
+        public override string ToolTipEditar => "Editar item";
+
+        public override string ToolTipExcluir => "Excluir item";
+
+        public override void Inserir()
+        {
+            TelaItemForm telaItem = new TelaItemForm();
+
+            DialogResult opcaoEscolhida = telaItem.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Item novoItem = telaItem.ObterItem();
+
+                repositorioItem.Inserir(novoItem);
+
+            }
+
+            CarregarItens();
+        }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Item itemSelecionado = ObterItemSelecionado();
+
+            if (itemSelecionado == null)
+            {
+                MessageBox.Show("Selecione um item primeiro", "Edição de Item", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaItemForm telaItem = new TelaItemForm();
+
+            telaItem.ConfigurarValoresNaTela(itemSelecionado);
+
+            DialogResult opcaoEscolhida = telaItem.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Item item = telaItem.ObterItem();
+
+                repositorioItem.Editar(item.id, item);
+
+                CarregarItens();
+            }
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Item itemSelecionado = ObterItemSelecionado();
+
+            if (itemSelecionado == null)
+            {
+                MessageBox.Show("Selecione um item primeiro", "Exclusão de Item", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item {itemSelecionado.nome}?",
+             "Exclusão de Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioItem.Excluir(itemSelecionado);
+
+                CarregarItens();
+            }
         }
 
-        public override void Inserir()
+        private void CarregarItens()
         {
-            throw new NotImplementedException();
+            List<Item> itens = repositorioItem.SelecionarTodos();
+
+            tabelaItem.AtualizarRegistros(itens);
+
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} tarefa(s)");
         }
 
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (tabelaItem == null)
+                tabelaItem = new TabelaItemControl();
+
+
+            CarregarItens();
+
+            return tabelaItem;
         }
 
         public override string ObterTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Categorias";
+        }
+
+        private Item ObterItemSelecionado()
+        {
+            int id = tabelaItem.ObterIdSelecionado();
+
+            return repositorioItem.SelecionarPorId(id);
         }
     }
 }

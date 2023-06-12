@@ -54,7 +54,7 @@
             // 
             // menuBar
             // 
-            menuBar.BackColor = Color.LightSlateGray;
+            menuBar.BackColor = Color.Cyan;
             menuBar.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
@@ -107,7 +107,7 @@
             // 
             // toolBar
             // 
-            toolBar.BackColor = Color.LightSteelBlue;
+            toolBar.BackColor = Color.Cyan;
             toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnPagamento, toolStripSeparator2, labelTipoCadastro });
             toolBar.Location = new Point(0, 26);
             toolBar.Name = "toolBar";
@@ -191,6 +191,7 @@
             // 
             // statusStrip1
             // 
+            statusStrip1.BackColor = Color.Cyan;
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
             statusStrip1.Location = new Point(0, 313);
             statusStrip1.Name = "statusStrip1";
@@ -209,6 +210,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(657, 336);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);

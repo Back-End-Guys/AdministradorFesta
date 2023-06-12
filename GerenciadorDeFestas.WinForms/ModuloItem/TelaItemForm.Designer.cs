@@ -32,14 +32,15 @@
             label2 = new Label();
             btnGravar = new Button();
             btnCancelar = new Button();
-            txtTema = new TextBox();
-            label3 = new Label();
-            chListItens = new CheckedListBox();
+            txtNome = new TextBox();
+            lblNome = new Label();
+            txtValor = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Location = new Point(424, 12);
+            txtId.Location = new Point(403, 12);
             txtId.Name = "txtId";
             txtId.Size = new Size(28, 23);
             txtId.TabIndex = 10;
@@ -48,7 +49,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(398, 15);
+            label2.Location = new Point(377, 15);
             label2.Name = "label2";
             label2.Size = new Size(20, 15);
             label2.TabIndex = 9;
@@ -57,7 +58,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(270, 204);
+            btnGravar.Location = new Point(242, 133);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(88, 41);
             btnGravar.TabIndex = 8;
@@ -67,45 +68,54 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(364, 204);
+            btnCancelar.Location = new Point(343, 133);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(88, 41);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txtTema
+            // txtNome
             // 
-            txtTema.Location = new Point(76, 12);
-            txtTema.Name = "txtTema";
-            txtTema.Size = new Size(282, 23);
-            txtTema.TabIndex = 13;
+            txtNome.Location = new Point(76, 12);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(282, 23);
+            txtNome.TabIndex = 13;
             // 
-            // label3
+            // lblNome
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 15);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 11;
-            label3.Text = "Tema:";
+            lblNome.AutoSize = true;
+            lblNome.Location = new Point(27, 15);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(43, 15);
+            lblNome.TabIndex = 11;
+            lblNome.Text = "Nome:";
             // 
-            // chListItens
+            // txtValor
             // 
-            chListItens.FormattingEnabled = true;
-            chListItens.Location = new Point(27, 50);
-            chListItens.Name = "chListItens";
-            chListItens.Size = new Size(425, 148);
-            chListItens.TabIndex = 14;
+            txtValor.Location = new Point(76, 69);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(98, 23);
+            txtValor.TabIndex = 15;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 72);
+            label1.Name = "label1";
+            label1.Size = new Size(36, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Valor:";
             // 
             // TelaItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(464, 256);
-            Controls.Add(chListItens);
-            Controls.Add(txtTema);
-            Controls.Add(label3);
+            ClientSize = new Size(440, 189);
+            Controls.Add(txtValor);
+            Controls.Add(label1);
+            Controls.Add(txtNome);
+            Controls.Add(lblNome);
             Controls.Add(txtId);
             Controls.Add(label2);
             Controls.Add(btnGravar);
@@ -122,8 +132,9 @@
         private Label label2;
         private Button btnGravar;
         private Button btnCancelar;
-        private TextBox txtTema;
-        private Label label3;
-        private CheckedListBox chListItens;
+        private TextBox txtNome;
+        private Label lblNome;
+        private TextBox txtValor;
+        private Label label1;
     }
 }

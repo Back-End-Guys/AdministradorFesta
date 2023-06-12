@@ -1,11 +1,16 @@
+
+using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.Dominio.ModuloItem;
+using GerenciadorDeFestas.Dominio.ModuloTema;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloCliente;
+using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloItem;
+using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloTema;
 using GerenciadorDeFestas.WinForms.Compartilhado;
 using GerenciadorDeFestas.WinForms.ModuloAluguel;
 using GerenciadorDeFestas.WinForms.ModuloCliente;
 using GerenciadorDeFestas.WinForms.ModuloItem;
 using GerenciadorDeFestas.WinForms.ModuloTema;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GerenciadorDeFestas.WinForms
 {
@@ -17,7 +22,11 @@ namespace GerenciadorDeFestas.WinForms
 
         static ContextoDados contexto = new ContextoDados(carregarDados: true);
 
-        //aqui vai os instanciamentos dos repositorios
+        private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contexto);
+        private IRepositorioItem repositorioItem = new RepositorioItemEmArquivo(contexto);
+        private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contexto);
+
+
 
         public TelaPrincipalForm()
         {
@@ -89,21 +98,21 @@ namespace GerenciadorDeFestas.WinForms
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCliente();
+            controlador = new ControladorCliente(repositorioCliente);
 
             ConfigurarTelaPrincipal(controlador);
         }
 
         private void TemasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTema();
+            controlador = new ControladorTema(repositorioTema, repositorioItem);
 
             ConfigurarTelaPrincipal(controlador);
         }
 
         private void ItensMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorItem();
+            controlador = new ControladorItem(repositorioItem);
 
             ConfigurarTelaPrincipal(controlador);
         }

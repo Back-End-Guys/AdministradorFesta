@@ -32,11 +32,14 @@
             label2 = new Label();
             btnGravar = new Button();
             btnCancelar = new Button();
+            txtNome = new TextBox();
+            label1 = new Label();
+            chListItens = new CheckedListBox();
             SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Location = new Point(368, 13);
+            txtId.Location = new Point(334, 12);
             txtId.Name = "txtId";
             txtId.Size = new Size(28, 23);
             txtId.TabIndex = 10;
@@ -45,7 +48,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(342, 16);
+            label2.Location = new Point(308, 15);
             label2.Name = "label2";
             label2.Size = new Size(20, 15);
             label2.TabIndex = 9;
@@ -54,28 +57,56 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(230, 137);
+            btnGravar.Location = new Point(181, 220);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(88, 41);
             btnGravar.TabIndex = 8;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(324, 137);
+            btnCancelar.Location = new Point(274, 220);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(88, 41);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // txtNome
+            // 
+            txtNome.Location = new Point(59, 11);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(225, 23);
+            txtNome.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(18, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(35, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Tema";
+            // 
+            // chListItens
+            // 
+            chListItens.FormattingEnabled = true;
+            chListItens.Location = new Point(18, 57);
+            chListItens.Name = "chListItens";
+            chListItens.Size = new Size(344, 148);
+            chListItens.TabIndex = 13;
+            // 
             // TelaTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(424, 190);
+            ClientSize = new Size(376, 273);
+            Controls.Add(chListItens);
+            Controls.Add(label1);
+            Controls.Add(txtNome);
             Controls.Add(txtId);
             Controls.Add(label2);
             Controls.Add(btnGravar);
@@ -92,5 +123,8 @@
         private Label label2;
         private Button btnGravar;
         private Button btnCancelar;
+        private TextBox txtNome;
+        private Label label1;
+        private CheckedListBox chListItens;
     }
 }
