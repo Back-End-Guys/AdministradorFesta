@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GerenciadorDeFestas.Dominio.ModuloAluguel;
+using GerenciadorDeFestas.Dominio.ModuloCliente;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,13 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public TabelaAluguelControl()
         {
             InitializeComponent();
+
+
+        }
+
+        public void AtualizarRegistros()
+        {
+
         }
     }
 }
