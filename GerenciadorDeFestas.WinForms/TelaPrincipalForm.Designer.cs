@@ -108,6 +108,7 @@
             // toolBar
             // 
             toolBar.BackColor = Color.Cyan;
+            toolBar.Enabled = false;
             toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnPagamento, toolStripSeparator2, labelTipoCadastro });
             toolBar.Location = new Point(0, 26);
             toolBar.Name = "toolBar";

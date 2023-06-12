@@ -18,7 +18,7 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
 
         public virtual bool ExcluirHabilitado { get { return true; } }
 
-        public virtual bool PagamentoHabilitado { get { return true; } }
+        public virtual bool PagamentoHabilitado { get { return false; } }
 
         public abstract void Inserir();
 

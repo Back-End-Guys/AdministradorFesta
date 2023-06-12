@@ -75,7 +75,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item {itemSelecionado.nome}?",
-             "Exclusão de Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+             "Exclusão de Item", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
@@ -91,7 +91,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
             tabelaItem.AtualizarRegistros(itens);
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} tarefa(s)");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} item(s)");
         }
 
         public override UserControl ObterListagem()
@@ -107,7 +107,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de Categorias";
+            return "Cadastro de Itens";
         }
 
         private Item ObterItemSelecionado()

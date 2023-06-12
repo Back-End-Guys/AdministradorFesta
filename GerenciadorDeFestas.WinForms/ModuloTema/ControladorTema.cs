@@ -125,7 +125,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de Despesas";
+            return "Cadastro de Temas";
         }
     }
 }
