@@ -19,11 +19,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public Aluguel ObterAluguel()
         {
             int id = int.Parse(txtId.Text);
-            Cliente cliente = (Cliente)txtCliente.SelectedItem;
-            Tema tema = (Tema)txtTema.SelectedItem;
-            DateTime data = txtData.Value;
-            DateTime horaInicio = txtHorarioInicio.Value;
-            DateTime horaFinal = txtHorarioFinal.Value;
+            Cliente cliente = (Cliente)cbCliente.SelectedItem;
+            Tema tema = (Tema)cbTema.SelectedItem;
+            DateTime data = dtData.Value;
+            DateTime horaInicio = dtHorarioInicio.Value;
+            DateTime horaFinal = dtHorarioFinal.Value;
             string Cep = txtCep.Text;
             string numero = txtNumero.Text;
             string nomeRua = txtRua.Text;
@@ -31,6 +31,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             Aluguel aluguel = new Aluguel(cliente, tema, data, horaInicio, horaFinal, Cep, numero, nomeRua);
 
             aluguel.id = id;
+            aluguel.ValorAhPagar = tema.valorTotal;
 
             return aluguel;
         }
@@ -38,11 +39,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public void ConfigurarValoresNaTela(Aluguel aluguelSelecionado)
         {
             txtId.Text = aluguelSelecionado.id.ToString();
-            txtCliente.Text = aluguelSelecionado.cliente.ToString();
-            txtTema.Text = aluguelSelecionado.tema.ToString();
-            txtData.Value = aluguelSelecionado.data;
-            txtHorarioInicio.Value = aluguelSelecionado.horaInicio;
-            txtHorarioFinal.Value = aluguelSelecionado.horaFinal;
+            cbCliente.Text = aluguelSelecionado.cliente.ToString();
+            cbTema.Text = aluguelSelecionado.tema.ToString();
+            dtData.Value = aluguelSelecionado.data;
+            dtHorarioInicio.Value = aluguelSelecionado.horaInicio;
+            dtHorarioFinal.Value = aluguelSelecionado.horaFinal;
             txtCep.Text = aluguelSelecionado.Cep;
             txtNumero.Text = aluguelSelecionado.numero;
             txtRua.Text = aluguelSelecionado.nomeRua;
@@ -50,9 +51,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public void ConfigurarComboBoxClientes(List<Cliente> clientes)
         {
-            foreach (Cliente cliente in clientes) 
-            { 
-                txtCliente.Items.Add(cliente);
+            foreach (Cliente cliente in clientes)
+            {
+                cbCliente.Items.Add(cliente);
             }
         }
 
@@ -60,10 +61,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         {
             foreach (Tema tema in temas)
             {
-                txtTema.Items.Add(tema);
+                cbTema.Items.Add(tema);
             }
         }
-
-
     }
 }

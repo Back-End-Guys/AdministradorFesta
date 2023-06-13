@@ -16,6 +16,8 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         public string nomeRua;
 
         public bool pagamento;
+        public decimal ValorAhPagar;
+        public PorcentagemPagaEnum porcentagemPaga;        
 
         public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua)
         {
@@ -27,7 +29,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             Cep = cep;
             this.numero = numero;
             this.nomeRua = nomeRua;
-
         }
 
         public Aluguel()
@@ -45,7 +46,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.Cep = registroAtualizado.Cep;
             this.numero = registroAtualizado.numero;
             this.nomeRua = registroAtualizado.nomeRua;
-
+            this.ValorAhPagar = registroAtualizado.ValorAhPagar;
         }
 
         public override string[] Validar()
@@ -68,7 +69,25 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             }
 
             return erros.ToArray();
+        }
 
+        public decimal CalcularDesconto()
+        {
+            if (cliente.clienteAntigo)
+            {
+                return tema.valorTotal * (decimal)0.90;
+            }
+
+            return tema.valorTotal;
+        }
+
+        public decimal CalcularValorAhPagar()
+        {
+            decimal valorAhPagar = CalcularDesconto();
+
+            valorAhPagar = valorAhPagar - (valorAhPagar * (decimal)porcentagemPaga / 100);
+
+            return valorAhPagar;
         }
     }
 }

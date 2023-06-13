@@ -2,6 +2,7 @@
 using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.Dominio.ModuloTema;
 using GerenciadorDeFestas.WinForms.Compartilhado;
+using System.Configuration;
 
 namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 {
@@ -27,6 +28,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override string ToolTipExcluir { get { return "Excluir Aluguel existente"; } }
 
+        public override bool PagamentoHabilitado => true;
+
         public override void Inserir()
         {
             TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
@@ -38,34 +41,112 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
                 repositorioAluguel.Inserir(aluguel);
+
                 CarregarAlugueis();
             }
+        }        
+
+        public override void Editar()
+        {
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
+            telaAluguel.ConfigurarValoresNaTela(aluguelSelecionado);
+
+            DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Aluguel aluguel = telaAluguel.ObterAluguel();
+
+                repositorioAluguel.Editar(aluguel.id, aluguel);
+
+                CarregarAlugueis();
+            }
+        }
+
+        public override void Excluir()
+        {
+            Aluguel aluguel = ObterAluguelSelecionado();
+
+            if (aluguel == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Exclusão de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema}\"?", "Exclusão de Alugueis",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioAluguel.Excluir(aluguel);
+
+                CarregarAlugueis();
+            }
+        }
+
+        public override void Pagamento()
+        {
+            TelaPagamentoForm telaPagamento = new TelaPagamentoForm();
+
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            telaPagamento.ConfigurarTela(aluguelSelecionado);
+
+            DialogResult opcaoEscolhida = telaPagamento.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                telaPagamento.PorcentagemPaga(aluguelSelecionado);
+
+                aluguelSelecionado.ValorAhPagar = aluguelSelecionado.CalcularValorAhPagar();
+
+                CarregarAlugueis();
+            }
+        }
+
+        private Aluguel ObterAluguelSelecionado()
+        {
+            int id = tabelaAluguel.ObterIdSelecionado();
+
+            return repositorioAluguel.SelecionarPorId(id);
         }
 
         private void CarregarAlugueis()
         {
             List<Aluguel> listaAlugueis = repositorioAluguel.SelecionarTodos();
-            //tabelaAluguel.AtualizarRegistros(listaAlugueis);
-        }
 
-        public override void Editar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Excluir()
-        {
-            throw new NotImplementedException();
+            tabelaAluguel.AtualizarRegistros(listaAlugueis);
         }
 
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (tabelaAluguel == null)
+                tabelaAluguel = new TabelaAluguelControl();
+
+            CarregarAlugueis();
+
+            return tabelaAluguel;
         }
 
         public override string ObterTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Alugueis";
         }
     }
 }

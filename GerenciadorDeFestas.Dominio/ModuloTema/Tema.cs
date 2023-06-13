@@ -49,6 +49,10 @@ namespace GerenciadorDeFestas.Dominio.ModuloTema
             return valorTotal;
         }
 
+        public override string ToString()
+        {
+            return nome;
+        }
     }
 }
 

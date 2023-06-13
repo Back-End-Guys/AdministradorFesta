@@ -55,10 +55,12 @@
             // menuBar
             // 
             menuBar.BackColor = Color.Cyan;
+            menuBar.ImageScalingSize = new Size(20, 20);
             menuBar.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
-            menuBar.Size = new Size(657, 26);
+            menuBar.Padding = new Padding(7, 3, 0, 3);
+            menuBar.Size = new Size(889, 34);
             menuBar.TabIndex = 0;
             menuBar.Text = "menuStrip1";
             // 
@@ -67,13 +69,13 @@
             cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesMenuItem, TemasMenu, aluguelMenuItem });
             cadastrosToolStripMenuItem.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(98, 22);
+            cadastrosToolStripMenuItem.Size = new Size(116, 28);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // clientesMenuItem
             // 
             clientesMenuItem.Name = "clientesMenuItem";
-            clientesMenuItem.Size = new Size(130, 22);
+            clientesMenuItem.Size = new Size(166, 28);
             clientesMenuItem.Text = "Cliente";
             clientesMenuItem.Click += clientesMenuItem_Click;
             // 
@@ -81,27 +83,27 @@
             // 
             TemasMenu.DropDownItems.AddRange(new ToolStripItem[] { ItensMenuItem, TemasMenuItem });
             TemasMenu.Name = "TemasMenu";
-            TemasMenu.Size = new Size(130, 22);
+            TemasMenu.Size = new Size(166, 28);
             TemasMenu.Text = "Temas";
             // 
             // ItensMenuItem
             // 
             ItensMenuItem.Name = "ItensMenuItem";
-            ItensMenuItem.Size = new Size(127, 22);
+            ItensMenuItem.Size = new Size(157, 28);
             ItensMenuItem.Text = "Itens";
             ItensMenuItem.Click += ItensMenuItem_Click;
             // 
             // TemasMenuItem
             // 
             TemasMenuItem.Name = "TemasMenuItem";
-            TemasMenuItem.Size = new Size(127, 22);
+            TemasMenuItem.Size = new Size(157, 28);
             TemasMenuItem.Text = "Temas";
             TemasMenuItem.Click += TemasMenuItem_Click;
             // 
             // aluguelMenuItem
             // 
             aluguelMenuItem.Name = "aluguelMenuItem";
-            aluguelMenuItem.Size = new Size(130, 22);
+            aluguelMenuItem.Size = new Size(166, 28);
             aluguelMenuItem.Text = "Aluguel";
             aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
@@ -109,11 +111,12 @@
             // 
             toolBar.BackColor = Color.Cyan;
             toolBar.Enabled = false;
+            toolBar.ImageScalingSize = new Size(20, 20);
             toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnPagamento, toolStripSeparator2, labelTipoCadastro });
-            toolBar.Location = new Point(0, 26);
+            toolBar.Location = new Point(0, 34);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
-            toolBar.Size = new Size(657, 45);
+            toolBar.Size = new Size(889, 45);
             toolBar.TabIndex = 2;
             toolBar.Text = "toolStrip1";
             // 
@@ -179,24 +182,28 @@
             // 
             labelTipoCadastro.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new Size(105, 42);
+            labelTipoCadastro.Size = new Size(126, 42);
             labelTipoCadastro.Text = "tipoCadastro";
             // 
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
-            panelRegistros.Location = new Point(0, 67);
+            panelRegistros.Dock = DockStyle.Fill;
+            panelRegistros.Location = new Point(0, 79);
+            panelRegistros.Margin = new Padding(3, 4, 3, 4);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(657, 244);
+            panelRegistros.Size = new Size(889, 456);
             panelRegistros.TabIndex = 4;
             // 
             // statusStrip1
             // 
             statusStrip1.BackColor = Color.Cyan;
+            statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 313);
+            statusStrip1.Location = new Point(0, 505);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(657, 23);
+            statusStrip1.Padding = new Padding(1, 0, 16, 0);
+            statusStrip1.Size = new Size(889, 30);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "[rodape]";
             // 
@@ -204,22 +211,25 @@
             // 
             labelRodape.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(70, 18);
+            labelRodape.Size = new Size(88, 24);
             labelRodape.Text = "[rodape]";
             // 
             // TelaPrincipalForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(657, 336);
+            ClientSize = new Size(889, 535);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);
             Controls.Add(toolBar);
             Controls.Add(menuBar);
             MainMenuStrip = menuBar;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "TelaPrincipalForm";
-            Text = "Form1";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gerenciador de Festas Infantis";
             menuBar.ResumeLayout(false);
             menuBar.PerformLayout();
             toolBar.ResumeLayout(false);
