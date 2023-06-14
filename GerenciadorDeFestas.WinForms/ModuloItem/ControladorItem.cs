@@ -90,8 +90,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             List<Item> itens = repositorioItem.SelecionarTodos();
 
             tabelaItem.AtualizarRegistros(itens);
-
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} item(s)");
         }
 
         public override UserControl ObterListagem()

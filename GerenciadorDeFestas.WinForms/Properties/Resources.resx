@@ -117,4 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="adicionarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adicionarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aluguelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aluguelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cadastroIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cadastroIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deletarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enderecoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enderecoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pagamentoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagamentoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tema1Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tema1Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tema2Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tema2Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -15,17 +15,17 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             switch (porcentagemPaga)
             {
-                case PorcentagemPagaEnum.Quarenta: rdbQuarenta.Checked = true;   break;
+                case PorcentagemPagaEnum.Quarenta: rdbQuarenta.Checked = true; break;
 
                 case PorcentagemPagaEnum.Cinquenta: rdbCinquenta.Checked = true; break;
 
-                case PorcentagemPagaEnum.Cem: rdbCem.Checked = true;             break;
+                case PorcentagemPagaEnum.Cem: rdbCem.Checked = true; break;
             }
         }
 
         public PorcentagemPagaEnum PorcentagemPaga(Aluguel aluguelSelecionado)
         {
-            if (rdbQuarenta.Checked)                
+            if (rdbQuarenta.Checked)
                 return aluguelSelecionado.porcentagemPaga = PorcentagemPagaEnum.Quarenta;
 
             else if (rdbCinquenta.Checked)

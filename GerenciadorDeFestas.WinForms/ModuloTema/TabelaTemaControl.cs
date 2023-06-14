@@ -11,7 +11,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
             ConfigurarColunas();
 
-            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridLinhas();
 
             grid.ConfigurarGridSomenteLeitura();
         }
@@ -23,7 +23,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             {
                 grid.Rows.Add(tema.id, tema.nome, tema.valorTotal);
             }
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} cliente(s)");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
         }
 
         private void ConfigurarColunas()
@@ -33,7 +33,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn()
                 {

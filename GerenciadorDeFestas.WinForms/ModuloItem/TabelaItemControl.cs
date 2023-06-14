@@ -10,7 +10,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             InitializeComponent();
             ConfigurarColunas();
 
-            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridLinhas();
 
             grid.ConfigurarGridSomenteLeitura();
         }
@@ -21,7 +21,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn()
                 {
@@ -39,10 +39,13 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
         public void AtualizarRegistros(List<Item> itens)
         {
             grid.Rows.Clear();
+
             foreach (Item categoria in itens)
             {
                 grid.Rows.Add(categoria.id, categoria.nome, categoria.valor);
             }
+
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} item(ns)");
         }
         public int ObterIdSelecionado()
         {

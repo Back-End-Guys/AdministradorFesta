@@ -79,6 +79,7 @@ namespace GerenciadorDeFestas.WinForms
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnPagamento.Enabled = controlador.PagamentoHabilitado;
+            btnEndereco.Enabled = controlador.EnderecoHabilitado;
         }
 
         private void ConfigurarToolTips(ControladorBase controlador)
@@ -87,6 +88,7 @@ namespace GerenciadorDeFestas.WinForms
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnPagamento.ToolTipText = controlador.ToolTipPagamento;
+            btnEndereco.ToolTipText = controlador.ToolTipEndereco;
         }
 
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
@@ -144,6 +146,11 @@ namespace GerenciadorDeFestas.WinForms
         private void btnPagamento_Click(object sender, EventArgs e)
         {
             controlador.Pagamento();
+        }
+
+        private void btnEndereco_Click(object sender, EventArgs e)
+        {
+            controlador.Endereco();
         }
     }
 }

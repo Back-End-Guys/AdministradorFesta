@@ -11,7 +11,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             ConfigurarColunas();
 
-            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridLinhas();
 
             grid.ConfigurarGridSomenteLeitura();
         }
@@ -19,6 +19,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
         public void AtualizarRegistros(List<Cliente> clientes)
         {
             grid.Rows.Clear();
+
             foreach (Cliente cliente in clientes)
             {
                 grid.Rows.Add(cliente.id, cliente.nome, cliente.telefone, cliente.clienteAntigo);
@@ -33,7 +34,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn()
                 {

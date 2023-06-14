@@ -11,7 +11,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             ConfigurarColunas();
 
-            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridLinhas();
 
             grid.ConfigurarGridSomenteLeitura();
         }
@@ -22,10 +22,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             foreach (Aluguel aluguel in alugueis)
             {
-                grid.Rows.Add(aluguel.id, aluguel.cliente, aluguel.tema, aluguel.data.ToString("dd/MM/yyyy"), aluguel.horaInicio.ToString("HH:mm"), aluguel.horaFinal.ToString("HH:mm"), aluguel.Cep, aluguel.porcentagemPaga, aluguel.ValorAhPagar);
+                grid.Rows.Add(aluguel.id, aluguel.cliente, aluguel.tema, aluguel.data.ToString("dd/MM/yyyy"), aluguel.horaInicio.ToString("HH:mm"), aluguel.horaFinal.ToString("HH:mm"), aluguel.porcentagemPaga + " %", aluguel.ValorAhPagar);
             }
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} alugueis");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(éis)");
         }
 
         private void ConfigurarColunas()
@@ -35,7 +35,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn()
                 {
@@ -55,17 +55,12 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "horarioInicial",
-                    HeaderText = "Horário inical"
+                    HeaderText = "Início"
                 },
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "horarioFinal",
-                    HeaderText = "Horário final"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "cep",
-                    HeaderText = "CEP"
+                    HeaderText = "Fim"
                 },
                 new DataGridViewTextBoxColumn()
                 {

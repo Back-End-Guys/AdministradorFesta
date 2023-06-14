@@ -22,13 +22,19 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             this.repositorioTema = repositorioTema;
         }
 
-        public override string ToolTipInserir { get { return "Inserir novo Aluguel"; } }
+        public override string ToolTipInserir => "Inserir novo Aluguel";
 
-        public override string ToolTipEditar { get { return "Editar Aluguel existente"; } }
+        public override string ToolTipEditar => "Editar Aluguel existente"; 
 
-        public override string ToolTipExcluir { get { return "Excluir Aluguel existente"; } }
+        public override string ToolTipExcluir => "Excluir Aluguel existente";
+
+        public override string ToolTipPagamento => "Pagamento Aluguel";
+
+        public override string ToolTipEndereco => "Endereço Aluguel";
 
         public override bool PagamentoHabilitado => true;
+
+        public override bool EnderecoHabilitado => true;
 
         public override void Inserir()
         {
@@ -120,6 +126,17 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             }
         }
 
+        public override void Endereco()
+        {
+            TelaEnderecoForm telaEndereco = new TelaEnderecoForm();
+
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            telaEndereco.ConfigurarTela(aluguelSelecionado);
+
+            telaEndereco.ShowDialog();
+        }
+
         private Aluguel ObterAluguelSelecionado()
         {
             int id = tabelaAluguel.ObterIdSelecionado();
@@ -146,7 +163,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de Alugueis";
+            return "Cadastro de Aluguéis";
         }
     }
 }

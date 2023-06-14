@@ -2,30 +2,20 @@
 {
     public static class GridExtensions
     {
-        public static void ConfigurarGridZebrado(this DataGridView grid)
+        public static void ConfigurarGridLinhas(this DataGridView grid)
         {
-            Font font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
-            DataGridViewCellStyle linhaEscura = new DataGridViewCellStyle
-            {
-                BackColor = Color.Gray,
-                Font = font,
-                ForeColor = Color.Black,
-                SelectionBackColor = Color.LightGray,
-                SelectionForeColor = Color.Black
-            };
-
-            grid.AlternatingRowsDefaultCellStyle = linhaEscura;
-
-            DataGridViewCellStyle linhaClara = new DataGridViewCellStyle
+            DataGridViewCellStyle linhas = new DataGridViewCellStyle
             {
                 BackColor = Color.LightGray,
                 Font = font,
-                SelectionBackColor = Color.LightGray,
-                SelectionForeColor = Color.Black
+                ForeColor = Color.Black,
+                SelectionBackColor = Color.FromArgb(45, 45, 45),
+                SelectionForeColor = Color.White
             };
 
-            grid.RowsDefaultCellStyle = linhaClara;
+            grid.RowsDefaultCellStyle = linhas;
         }
 
         public static void ConfigurarGridSomenteLeitura(this DataGridView grid)
