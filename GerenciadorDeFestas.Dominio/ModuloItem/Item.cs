@@ -1,5 +1,4 @@
 ﻿using GerenciadorDeFestas.Dominio.Compartilhado;
-using System.Drawing;
 
 namespace GerenciadorDeFestas.Dominio.ModuloItem
 {
@@ -14,6 +13,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloItem
             this.nome = nome;
             this.valor = valor;
         }
+
         public Item()
         {
         }
@@ -31,7 +31,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloItem
             if (valor <= 0)
                 erros.Add("O valor precisa ser número positivo.");
 
-            else if (nome == null)
+            else if (string.IsNullOrEmpty(nome))
                 erros.Add("É necessário incluir o nome do Item.");
 
             return erros.ToArray();

@@ -1,4 +1,5 @@
-﻿using GerenciadorDeFestas.Dominio.ModuloItem;
+﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.Dominio.ModuloItem;
 using GerenciadorDeFestas.Dominio.ModuloTema;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloItem;
 
@@ -55,22 +56,18 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             chListItens.Items.AddRange(itens.ToArray());
         }
 
-        public void VerificarErros(Tema tema)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
+            Tema tema = ObterTema();
+
             string[] erros = tema.Validar();
 
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
                 DialogResult = DialogResult.None;
+                return;
             }
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            Tema tema = ObterTema();
-            VerificarErros(tema);
         }
     }
 }

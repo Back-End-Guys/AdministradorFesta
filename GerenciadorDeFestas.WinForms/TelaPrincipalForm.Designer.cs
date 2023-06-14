@@ -60,7 +60,7 @@
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
             menuBar.Padding = new Padding(7, 3, 0, 3);
-            menuBar.Size = new Size(906, 42);
+            menuBar.Size = new Size(1035, 42);
             menuBar.TabIndex = 0;
             menuBar.Text = "menuStrip1";
             // 
@@ -130,7 +130,7 @@
             toolBar.Location = new Point(0, 42);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
-            toolBar.Size = new Size(906, 53);
+            toolBar.Size = new Size(1035, 53);
             toolBar.TabIndex = 2;
             toolBar.Text = "toolStrip1";
             // 
@@ -220,7 +220,7 @@
             panelRegistros.Location = new Point(0, 95);
             panelRegistros.Margin = new Padding(3, 4, 3, 4);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(906, 480);
+            panelRegistros.Size = new Size(1035, 531);
             panelRegistros.TabIndex = 4;
             // 
             // statusStrip1
@@ -228,10 +228,10 @@
             statusStrip1.BackColor = Color.FromArgb(230, 235, 239);
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 551);
+            statusStrip1.Location = new Point(0, 604);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(906, 24);
+            statusStrip1.Size = new Size(1035, 22);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "[rodape]";
             // 
@@ -240,14 +240,14 @@
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             labelRodape.Margin = new Padding(16, 4, 0, 2);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(0, 18);
+            labelRodape.Size = new Size(0, 16);
             // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(906, 575);
+            ClientSize = new Size(1035, 626);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);
             Controls.Add(toolBar);

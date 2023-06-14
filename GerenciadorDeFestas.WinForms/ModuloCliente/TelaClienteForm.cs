@@ -32,6 +32,25 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             txtId.Text = clienteSelecionado.id.ToString();
             txtNome.Text = clienteSelecionado.nome;
             txtTelefone.Text = clienteSelecionado.telefone;
+
+            if (clienteSelecionado.clienteAntigo == true)
+                rdbAntigo.Checked = true;
+
+            else rdbNovo.Checked = true;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = ObterCliente();
+
+            string[] erros = cliente.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
+                return;
+            }
         }
     }
 }

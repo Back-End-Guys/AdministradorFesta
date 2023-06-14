@@ -66,6 +66,7 @@
             btnGravar.TabIndex = 1;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // rdbAntigo
             // 

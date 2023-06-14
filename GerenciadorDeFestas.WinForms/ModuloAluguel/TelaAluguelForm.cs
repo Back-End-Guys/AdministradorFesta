@@ -31,7 +31,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             Aluguel aluguel = new Aluguel(cliente, tema, data, horaInicio, horaFinal, Cep, numero, nomeRua);
 
             aluguel.id = id;
-            aluguel.ValorAhPagar = tema.valorTotal;
+
+            if (tema != null)
+                aluguel.ValorAhPagar = tema.valorTotal;
 
             return aluguel;
         }
@@ -62,6 +64,20 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             foreach (Tema tema in temas)
             {
                 cbTema.Items.Add(tema);
+            }
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Aluguel aluguel = ObterAluguel();
+
+            string[] erros = aluguel.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
+                return;
             }
         }
     }

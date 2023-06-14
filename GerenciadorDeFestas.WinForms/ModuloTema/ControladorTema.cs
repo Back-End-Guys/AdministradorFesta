@@ -37,10 +37,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 tema.CalcularValor();
 
                 repositorioTema.Inserir(tema);
-
-                CarregarTemas();
-
             }
+
+            CarregarTemas();
         }
 
         public override void Editar()
@@ -68,9 +67,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 tema.CalcularValor();
 
                 repositorioTema.Editar(tema.id, tema);
-
-                CarregarTemas();
             }
+
+            CarregarTemas();
         }
 
         public override void Excluir()
@@ -93,9 +92,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioTema.Excluir(tema);
-
-                CarregarTemas();
             }
+
+            CarregarTemas();
         }
 
         private Tema ObterTemaSelecionado()

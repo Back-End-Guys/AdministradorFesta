@@ -58,9 +58,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 Item item = telaItem.ObterItem();
 
                 repositorioItem.Editar(item.id, item);
-
-                CarregarItens();
             }
+
+            CarregarItens();
         }
 
         public override void Excluir()
@@ -80,9 +80,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioItem.Excluir(itemSelecionado);
-
-                CarregarItens();
             }
+
+            CarregarItens();
         }
 
         private void CarregarItens()
@@ -96,7 +96,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
         {
             if (tabelaItem == null)
                 tabelaItem = new TabelaItemControl();
-
 
             CarregarItens();
 

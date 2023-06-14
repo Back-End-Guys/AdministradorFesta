@@ -2,7 +2,6 @@
 using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.Dominio.ModuloTema;
 using GerenciadorDeFestas.WinForms.Compartilhado;
-using System.Configuration;
 
 namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 {
@@ -15,7 +14,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         private TabelaAluguelControl tabelaAluguel;
 
-        public ControladorAluguel(IRepositorioAluguel repositorioAluguel,IRepositorioCliente repositorioCliente, IRepositorioTema repositorioTema)
+        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, IRepositorioCliente repositorioCliente, IRepositorioTema repositorioTema)
         {
             this.repositorioAluguel = repositorioAluguel;
             this.repositorioCliente = repositorioCliente;
@@ -24,7 +23,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override string ToolTipInserir => "Inserir novo Aluguel";
 
-        public override string ToolTipEditar => "Editar Aluguel existente"; 
+        public override string ToolTipEditar => "Editar Aluguel existente";
 
         public override string ToolTipExcluir => "Excluir Aluguel existente";
 
@@ -49,10 +48,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 aluguel.ValorAhPagar = aluguel.CalcularValorAhPagar();
 
                 repositorioAluguel.Inserir(aluguel);
-
-                CarregarAlugueis();
             }
-        }        
+
+            CarregarAlugueis();
+        }
 
         public override void Editar()
         {
@@ -78,9 +77,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
                 repositorioAluguel.Editar(aluguel.id, aluguel);
-
-                CarregarAlugueis();
             }
+
+            CarregarAlugueis();
         }
 
         public override void Excluir()
@@ -103,9 +102,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioAluguel.Excluir(aluguel);
-
-                CarregarAlugueis();
             }
+
+            CarregarAlugueis();
         }
 
         public override void Pagamento()
@@ -127,9 +126,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 repositorioAluguel.AtualizarPagamentoJson(aluguelSelecionado.id, aluguelSelecionado);
 
                 aluguelSelecionado.FinalizarPagamento();
-
-                CarregarAlugueis();
             }
+
+            CarregarAlugueis();
         }
 
         public override void Endereco()

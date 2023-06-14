@@ -1,6 +1,7 @@
 ﻿using GerenciadorDeFestas.Dominio.Compartilhado;
 using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.Dominio.ModuloTema;
+using System.Text.RegularExpressions;
 
 namespace GerenciadorDeFestas.Dominio.ModuloAluguel
 {
@@ -59,20 +60,26 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         {
             List<string> erros = new List<string>();
 
-            if(string.IsNullOrEmpty(Cep))
-            {
+            if (cliente == null)
+                erros.Add("O campo 'Cliente' é obrigatório");
+
+            if (tema == null)
+                erros.Add("O campo 'Tema' é obrigatório");
+
+            string apenasDigitos = Regex.Replace(Cep, "[^0-9]", "");
+
+            if (string.IsNullOrEmpty(apenasDigitos))            
                 erros.Add("O campo 'Cep' é obrigatório");
-            }
 
-            if (string.IsNullOrEmpty(nomeRua))
-            {
-                erros.Add("O campo 'Rua' é obrigatório");
-            }
+            if (apenasDigitos.Length < 8)
+                erros.Add("'Cep' incompleto.");
 
-            if (string.IsNullOrEmpty(numero))
-            {
+            if (string.IsNullOrEmpty(nomeRua))            
+                erros.Add("O campo 'Rua' é obrigatório");            
+
+            if (string.IsNullOrEmpty(numero))            
                 erros.Add("O campo 'Número' é obrigatório");
-            }
+            
 
             return erros.ToArray();
         }

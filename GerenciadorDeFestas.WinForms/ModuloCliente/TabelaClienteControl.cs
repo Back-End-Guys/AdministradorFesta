@@ -22,8 +22,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             foreach (Cliente cliente in clientes)
             {
-                grid.Rows.Add(cliente.id, cliente.nome, cliente.telefone, cliente.clienteAntigo);
+                grid.Rows.Add(cliente.id, cliente.nome, cliente.telefone, cliente.clienteAntigo ? "Antigo" : "Novo");
             }
+
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {clientes.Count} cliente(s)");
         }
 
@@ -45,6 +46,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 {
                     Name = "telefone",
                     HeaderText = "Telefone"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "tipo",
+                    HeaderText = "Tipo"
                 }
             };
 
