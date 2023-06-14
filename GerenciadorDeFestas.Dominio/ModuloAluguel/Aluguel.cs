@@ -11,6 +11,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         public DateTime data;
         public DateTime horaInicio;
         public DateTime horaFinal;
+        public DateTime dataFechamento;
         public string Cep;
         public string numero;
         public string nomeRua;
@@ -47,6 +48,11 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.numero = registroAtualizado.numero;
             this.nomeRua = registroAtualizado.nomeRua;
             this.ValorAhPagar = registroAtualizado.ValorAhPagar;
+        }
+
+        public void AtualizarPagamento(Aluguel aluguelAtualizado)
+        {
+            this.porcentagemPaga = aluguelAtualizado.porcentagemPaga;
         }
 
         public override string[] Validar()
@@ -88,6 +94,14 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             valorAhPagar = valorAhPagar - (valorAhPagar * (decimal)porcentagemPaga / 100);
 
             return valorAhPagar;
+        }
+
+        public void FinalizarPagamento()
+        {
+            if (porcentagemPaga == PorcentagemPagaEnum.Cem)
+            {
+                dataFechamento = DateTime.Now.Date;
+            }
         }
     }
 }

@@ -22,7 +22,13 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             foreach (Aluguel aluguel in alugueis)
             {
-                grid.Rows.Add(aluguel.id, aluguel.cliente, aluguel.tema, aluguel.data.ToString("dd/MM/yyyy"), aluguel.horaInicio.ToString("HH:mm"), aluguel.horaFinal.ToString("HH:mm"), aluguel.porcentagemPaga + " %", aluguel.ValorAhPagar);
+                grid.Rows.Add(aluguel.id, aluguel.cliente, aluguel.tema, 
+                    aluguel.data.ToString("dd/MM/yyyy"), 
+                    aluguel.horaInicio.ToString("HH:mm"), 
+                    aluguel.horaFinal.ToString("HH:mm"), 
+                    aluguel.dataFechamento == new DateTime() ? "Em Aberto" :aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
+                    aluguel.porcentagemPaga.ToString("D") + "%", 
+                    aluguel.ValorAhPagar);
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(éis)");
@@ -61,6 +67,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 {
                     Name = "horarioFinal",
                     HeaderText = "Fim"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "dataFechamento",
+                    HeaderText = "Fechamento"
                 },
                 new DataGridViewTextBoxColumn()
                 {

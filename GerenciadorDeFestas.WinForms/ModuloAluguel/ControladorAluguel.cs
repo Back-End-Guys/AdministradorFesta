@@ -46,6 +46,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
+                aluguel.ValorAhPagar = aluguel.CalcularValorAhPagar();
+
                 repositorioAluguel.Inserir(aluguel);
 
                 CarregarAlugueis();
@@ -121,6 +123,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 telaPagamento.PorcentagemPaga(aluguelSelecionado);
 
                 aluguelSelecionado.ValorAhPagar = aluguelSelecionado.CalcularValorAhPagar();
+
+                repositorioAluguel.AtualizarPagamentoJson(aluguelSelecionado.id, aluguelSelecionado);
+
+                aluguelSelecionado.FinalizarPagamento();
 
                 CarregarAlugueis();
             }
