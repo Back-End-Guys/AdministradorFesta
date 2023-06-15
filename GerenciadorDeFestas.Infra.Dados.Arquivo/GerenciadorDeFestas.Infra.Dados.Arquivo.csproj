@@ -14,4 +14,10 @@
     <ProjectReference Include="..\GerenciadorDeFestas.Dominio\GerenciadorDeFestas.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Compartilhado\Festas.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

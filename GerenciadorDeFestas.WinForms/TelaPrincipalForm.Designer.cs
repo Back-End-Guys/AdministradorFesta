@@ -40,6 +40,7 @@
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            btnListaAlugueis = new ToolStripButton();
             btnPagamento = new ToolStripButton();
             btnEndereco = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -59,8 +60,7 @@
             menuBar.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
-            menuBar.Padding = new Padding(7, 3, 0, 3);
-            menuBar.Size = new Size(1035, 42);
+            menuBar.Size = new Size(906, 40);
             menuBar.TabIndex = 0;
             menuBar.Text = "menuStrip1";
             // 
@@ -72,7 +72,7 @@
             cadastrosToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             cadastrosToolStripMenuItem.Margin = new Padding(15, 0, 0, 0);
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(144, 36);
+            cadastrosToolStripMenuItem.Size = new Size(123, 36);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // clientesMenuItem
@@ -80,7 +80,7 @@
             clientesMenuItem.Image = Properties.Resources.clientesIcon;
             clientesMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             clientesMenuItem.Name = "clientesMenuItem";
-            clientesMenuItem.Size = new Size(177, 38);
+            clientesMenuItem.Size = new Size(149, 38);
             clientesMenuItem.Text = "Cliente";
             clientesMenuItem.Click += clientesMenuItem_Click;
             // 
@@ -90,7 +90,7 @@
             TemasMenu.Image = Properties.Resources.tema1Icon;
             TemasMenu.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenu.Name = "TemasMenu";
-            TemasMenu.Size = new Size(177, 38);
+            TemasMenu.Size = new Size(149, 38);
             TemasMenu.Text = "Temas";
             // 
             // ItensMenuItem
@@ -98,7 +98,7 @@
             ItensMenuItem.Image = Properties.Resources.itemIcon;
             ItensMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             ItensMenuItem.Name = "ItensMenuItem";
-            ItensMenuItem.Size = new Size(163, 38);
+            ItensMenuItem.Size = new Size(139, 38);
             ItensMenuItem.Text = "Itens";
             ItensMenuItem.Click += ItensMenuItem_Click;
             // 
@@ -107,7 +107,7 @@
             TemasMenuItem.Image = Properties.Resources.tema2Icon;
             TemasMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenuItem.Name = "TemasMenuItem";
-            TemasMenuItem.Size = new Size(163, 38);
+            TemasMenuItem.Size = new Size(139, 38);
             TemasMenuItem.Text = "Temas";
             TemasMenuItem.Click += TemasMenuItem_Click;
             // 
@@ -116,7 +116,7 @@
             aluguelMenuItem.Image = Properties.Resources.aluguelIcon;
             aluguelMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             aluguelMenuItem.Name = "aluguelMenuItem";
-            aluguelMenuItem.Size = new Size(177, 38);
+            aluguelMenuItem.Size = new Size(149, 38);
             aluguelMenuItem.Text = "Aluguel";
             aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
@@ -126,11 +126,11 @@
             toolBar.Enabled = false;
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
-            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnPagamento, btnEndereco, toolStripSeparator2, labelTipoCadastro });
-            toolBar.Location = new Point(0, 42);
+            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnListaAlugueis, btnPagamento, btnEndereco, toolStripSeparator2, labelTipoCadastro });
+            toolBar.Location = new Point(0, 40);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
-            toolBar.Size = new Size(1035, 53);
+            toolBar.Size = new Size(906, 53);
             toolBar.TabIndex = 2;
             toolBar.Text = "toolStrip1";
             // 
@@ -176,6 +176,20 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 53);
             // 
+            // btnListaAlugueis
+            // 
+            btnListaAlugueis.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnListaAlugueis.Image = Properties.Resources.listIcon;
+            btnListaAlugueis.ImageAlign = ContentAlignment.MiddleLeft;
+            btnListaAlugueis.ImageScaling = ToolStripItemImageScaling.None;
+            btnListaAlugueis.ImageTransparentColor = Color.Magenta;
+            btnListaAlugueis.MergeAction = MergeAction.Remove;
+            btnListaAlugueis.Name = "btnListaAlugueis";
+            btnListaAlugueis.Padding = new Padding(7, 7, 1, 7);
+            btnListaAlugueis.Size = new Size(44, 50);
+            btnListaAlugueis.Text = "toolStripButton3";
+            btnListaAlugueis.Click += btnListaAlugueis_Click;
+            // 
             // btnPagamento
             // 
             btnPagamento.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -209,7 +223,7 @@
             // 
             labelTipoCadastro.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new Size(152, 50);
+            labelTipoCadastro.Size = new Size(121, 50);
             labelTipoCadastro.Text = "Tipo de cadastro";
             // 
             // panelRegistros
@@ -217,10 +231,9 @@
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            panelRegistros.Location = new Point(0, 95);
-            panelRegistros.Margin = new Padding(3, 4, 3, 4);
+            panelRegistros.Location = new Point(0, 93);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(1035, 531);
+            panelRegistros.Size = new Size(906, 377);
             panelRegistros.TabIndex = 4;
             // 
             // statusStrip1
@@ -228,10 +241,9 @@
             statusStrip1.BackColor = Color.FromArgb(230, 235, 239);
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 604);
+            statusStrip1.Location = new Point(0, 448);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1035, 22);
+            statusStrip1.Size = new Size(906, 22);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "[rodape]";
             // 
@@ -244,16 +256,15 @@
             // 
             // TelaPrincipalForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1035, 626);
+            ClientSize = new Size(906, 470);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);
             Controls.Add(toolBar);
             Controls.Add(menuBar);
             MainMenuStrip = menuBar;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -289,5 +300,6 @@
         private ToolStripStatusLabel labelRodape;
         private ToolStripMenuItem TemasMenuItem;
         private ToolStripButton btnEndereco;
+        private ToolStripButton btnListaAlugueis;
     }
 }

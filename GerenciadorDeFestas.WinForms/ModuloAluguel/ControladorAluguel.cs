@@ -101,6 +101,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                aluguel.cliente.alugueis.Remove(aluguel);               
                 repositorioAluguel.Excluir(aluguel);
             }
 

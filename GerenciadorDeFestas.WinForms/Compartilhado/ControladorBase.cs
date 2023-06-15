@@ -34,6 +34,8 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
 
         public virtual void Endereco() { }
 
+        public virtual void ListarAlugueis() { }
+
         public abstract UserControl ObterListagem();
 
         public abstract string ObterTipoCadastro();

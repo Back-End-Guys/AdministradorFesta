@@ -152,5 +152,10 @@ namespace GerenciadorDeFestas.WinForms
         {
             controlador.Endereco();
         }
+
+        private void btnListaAlugueis_Click(object sender, EventArgs e)
+        {
+            controlador.ListarAlugueis();
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
     public class ControladorCliente : ControladorBase
     {
-
+        private TabelaListagemControl tabelaListagem;
         private IRepositorioCliente repositorioCliente;
         private TabelaClienteControl tabelaCliente;
 
@@ -85,11 +85,41 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                if(cliente.alugueis != null)
+                {
+                    MessageBox.Show("Exclusão inválida! Cliente possui aluguel(s)");
+                    return;  
+                }
+
                 repositorioCliente.Excluir(cliente);
             }
             
             CarregarClientes();
         }
+
+        //public override void ListarAlugueis()
+        //{
+
+        //    Cliente cliente = ObterClienteSelecionado();
+
+        //    if (cliente == null)
+        //    {
+        //        MessageBox.Show($"Selecione um cliente primeiro!",
+        //            "Listagem de alugueis",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Exclamation);
+
+        //        return;
+        //    }
+
+        //    TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
+
+        //    telaListagemAlugueis.SetarNome(cliente);
+
+        //    tabelaListagem.AtualizarRegistros(cliente.alugueis);
+
+        //    telaListagemAlugueis.ShowDialog();
+        //}
 
         private Cliente ObterClienteSelecionado()
         {
@@ -120,4 +150,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             return "Cadastro de Clientes";
         }
     }
+
+
 }

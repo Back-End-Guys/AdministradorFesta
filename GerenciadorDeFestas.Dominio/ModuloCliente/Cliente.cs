@@ -1,4 +1,5 @@
 ﻿using GerenciadorDeFestas.Dominio.Compartilhado;
+using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using System.Numerics;
 using System.Text.RegularExpressions;
 
@@ -7,12 +8,14 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
     [Serializable]
     public class Cliente : EntidadeBase<Cliente>
     {
+        public List<Aluguel> alugueis;
         public string nome;
         public string telefone;
         public bool clienteAntigo;
 
         public Cliente(string nome, string telefone, bool clienteAntigo)
         {
+            this.alugueis = new List<Aluguel>();
             this.nome = nome;
             this.telefone = telefone;
             this.clienteAntigo = clienteAntigo;
@@ -40,6 +43,10 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
 
             if (string.IsNullOrEmpty(apenasDigitos))
                 erros.Add("O campo 'telefone' é obrigatório");
+
+            if(nome.Length < 5)
+                erros.Add("O campo 'nome' deve ter no mínimo 5 caracteres");
+            
 
             return erros.ToArray();
         }
