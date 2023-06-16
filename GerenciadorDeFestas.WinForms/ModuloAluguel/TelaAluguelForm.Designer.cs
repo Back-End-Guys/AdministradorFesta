@@ -116,7 +116,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(389, 88);
+            label3.Location = new Point(362, 91);
             label3.Name = "label3";
             label3.Size = new Size(65, 25);
             label3.TabIndex = 12;
@@ -136,7 +136,7 @@
             // 
             cbTema.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbTema.FormattingEnabled = true;
-            cbTema.Location = new Point(460, 85);
+            cbTema.Location = new Point(433, 88);
             cbTema.Margin = new Padding(3, 4, 3, 4);
             cbTema.Name = "cbTema";
             cbTema.Size = new Size(155, 33);
@@ -229,7 +229,7 @@
             Localização.Controls.Add(label8);
             Localização.Controls.Add(label7);
             Localização.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            Localização.Location = new Point(364, 144);
+            Localização.Location = new Point(362, 144);
             Localização.Margin = new Padding(3, 4, 3, 4);
             Localização.Name = "Localização";
             Localização.Padding = new Padding(3, 4, 3, 4);

@@ -80,7 +80,7 @@ namespace GerenciadorDeFestas.WinForms
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnPagamento.Enabled = controlador.PagamentoHabilitado;
             btnEndereco.Enabled = controlador.EnderecoHabilitado;
-            btnListaAlugueis.Enabled = controlador.ListarAlugueisHabilitado;
+            btnListaAlugueis.Enabled = controlador.ListagemHabilitado;
         }
 
         private void ConfigurarToolTips(ControladorBase controlador)
@@ -157,7 +157,7 @@ namespace GerenciadorDeFestas.WinForms
 
         private void btnListaAlugueis_Click(object sender, EventArgs e)
         {
-            controlador.ListarAlugueis();
+            controlador.Listar();
         }
     }
 }

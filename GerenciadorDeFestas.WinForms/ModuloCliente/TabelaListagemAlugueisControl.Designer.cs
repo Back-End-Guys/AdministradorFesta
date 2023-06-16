@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
-    partial class TabelaListagemControl
+    partial class TabelaListagemAlugueisControl
     {
         /// <summary> 
         /// Required designer variable.

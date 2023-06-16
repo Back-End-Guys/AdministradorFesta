@@ -1,4 +1,5 @@
 ﻿using GerenciadorDeFestas.Dominio.Compartilhado;
+using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using GerenciadorDeFestas.Dominio.ModuloItem;
 
 namespace GerenciadorDeFestas.Dominio.ModuloTema
@@ -9,15 +10,15 @@ namespace GerenciadorDeFestas.Dominio.ModuloTema
 
         public string nome;
         public decimal valorTotal;
-        public string descricao;
 
+        public List<Aluguel> listaAlugueis;
         public List<Item> listaItens;
 
-        public Tema(string nome, string descricao)
+        public Tema(string nome)
         {
             this.nome = nome;
             this.listaItens = new List<Item>();
-            this.descricao = descricao;
+            this.listaAlugueis = new List<Aluguel>();
         }
 
         public Tema()
@@ -29,7 +30,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloTema
             this.nome = registroAtualizado.nome;
             this.listaItens = registroAtualizado.listaItens;
             this.valorTotal = registroAtualizado.valorTotal;
-            this.descricao = registroAtualizado.descricao;
         }
 
         public override string[] Validar()

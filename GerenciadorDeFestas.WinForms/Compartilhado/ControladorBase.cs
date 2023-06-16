@@ -26,7 +26,7 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
 
         public virtual bool EnderecoHabilitado { get { return false; } }
 
-        public virtual bool ListarAlugueisHabilitado { get { return false; } }
+        public virtual bool ListagemHabilitado { get { return false; } }
 
         public abstract void Inserir();
 
@@ -38,7 +38,7 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
 
         public virtual void Endereco() { }
 
-        public virtual void ListarAlugueis() { }
+        public virtual void Listar() { }
 
         public abstract UserControl ObterListagem();
 

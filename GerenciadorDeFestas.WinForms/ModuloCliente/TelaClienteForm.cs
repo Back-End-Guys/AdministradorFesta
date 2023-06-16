@@ -1,5 +1,4 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
-using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
@@ -57,9 +56,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             foreach (Cliente c in clientes)
             {
-                if (cliente.nome == c.nome)
+                if (cliente.nome == c.nome && txtId.Text == "0")
                 {
-                    MessageBox.Show("O nome já está em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso.");
 
                     DialogResult = DialogResult.None;
                 }

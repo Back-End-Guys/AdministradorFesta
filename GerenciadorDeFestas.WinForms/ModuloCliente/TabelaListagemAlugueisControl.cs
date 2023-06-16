@@ -1,20 +1,11 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using GerenciadorDeFestas.WinForms.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
-    public partial class TabelaListagemControl : UserControl
+    public partial class TabelaListagemAlugueisControl : UserControl
     {
-        public TabelaListagemControl()
+        public TabelaListagemAlugueisControl()
         {
             InitializeComponent();
 
@@ -54,7 +45,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             grid.Columns.AddRange(colunas);
         }
 
-        public void AtualizarRegistros(List<Aluguel> alugueis)
+        public void AtualizarGrid(List<Aluguel> alugueis)
         {
             grid.Rows.Clear();
 
@@ -63,22 +54,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 grid.Rows.Add(aluguel.id, aluguel.tema, aluguel.porcentagemPaga, aluguel.ValorAhPagar);
             }
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} Aluguel(s)");
-        }
-
-        public int ObterIdSelecionado()
-        {
-            int id;
-
-            try
-            {
-                id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
-            }
-            catch
-            {
-                id = -1;
-            }
-            return id;
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} Aluguel(éis)");
         }
     }
 }

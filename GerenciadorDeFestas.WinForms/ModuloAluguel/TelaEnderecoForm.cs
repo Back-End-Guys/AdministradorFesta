@@ -1,4 +1,5 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloAluguel;
+using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 {
@@ -6,6 +7,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
     {
         public TelaEnderecoForm()
         {
+            this.ConfigurarDialog();
             InitializeComponent();
         }
 

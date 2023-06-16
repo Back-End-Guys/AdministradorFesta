@@ -46,6 +46,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
                 aluguel.cliente.alugueis.Add(aluguel);
+                aluguel.tema.listaAlugueis.Add(aluguel);
 
                 aluguel.ValorAhPagar = aluguel.CalcularValorAhPagar();
 
@@ -109,7 +110,15 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                     {
                         aluguel.cliente.alugueis.Remove(aluguel.cliente.alugueis[i]);
                     }
-                }             
+                }
+
+                for (int i = 0; i < aluguel.tema.listaAlugueis.Count(); i++)
+                {
+                    if (aluguel.tema.listaAlugueis[i] == aluguel)
+                    {
+                        aluguel.tema.listaAlugueis.Remove(aluguel.tema.listaAlugueis[i]);    
+                    }
+                }
 
                 repositorioAluguel.Excluir(aluguel);
             }

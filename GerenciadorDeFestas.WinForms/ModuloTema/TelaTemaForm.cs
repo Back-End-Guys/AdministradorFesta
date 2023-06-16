@@ -1,19 +1,18 @@
-﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
-using GerenciadorDeFestas.Dominio.ModuloItem;
+﻿using GerenciadorDeFestas.Dominio.ModuloItem;
 using GerenciadorDeFestas.Dominio.ModuloTema;
-using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloItem;
+using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloTema
 {
     public partial class TelaTemaForm : Form
     {
-        RepositorioItemEmArquivo repositorioItem;
-        List<Tema> temas;
+        public List<Tema> temas;
 
-        public TelaTemaForm(List<Tema> temas,List<Item> itens)
+        public TelaTemaForm(List<Tema> temas, List<Item> itens)
         {
             InitializeComponent();
 
+            this.ConfigurarDialog();
             ConfigurarListaItem(itens);
             this.temas = temas;
         }
@@ -22,9 +21,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         {
             int id = Convert.ToInt32(txtId.Text);
             string nomeTema = txtNome.Text;
-            string descricao = txtDescricao.Text;
 
-            Tema tema = new Tema(nomeTema, descricao);
+            Tema tema = new Tema(nomeTema);
             tema.id = id;
 
             tema.listaItens.AddRange(chListItens.CheckedItems.Cast<Item>());
@@ -36,7 +34,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         {
             txtId.Text = temaSelecionado.id.ToString();
             txtNome.Text = temaSelecionado.nome;
-            txtDescricao.Text = temaSelecionado.descricao;
 
             int i = 0;
 
@@ -75,13 +72,25 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
             foreach (Tema t in temas)
             {
-                if (tema.descricao == t.descricao)
+                if (tema.nome == t.nome && txtId.Text == "0")
                 {
-                    MessageBox.Show("A descrição já está em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("Esse nome já está em uso.");
 
                     DialogResult = DialogResult.None;
                 }
             }
+        }
+
+        private void chListItens_SelectedValueChanged(object sender, EventArgs e)
+        {
+            decimal valorTotal = 0;
+
+            foreach (Item i in chListItens.CheckedItems)
+            {
+                valorTotal += i.valor;
+            }
+
+            txtValor.Text = $"R$ {valorTotal}";
         }
     }
 }

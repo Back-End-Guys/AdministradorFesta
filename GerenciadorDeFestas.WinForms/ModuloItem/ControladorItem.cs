@@ -1,4 +1,5 @@
-﻿using GerenciadorDeFestas.Dominio.ModuloItem;
+﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.Dominio.ModuloItem;
 using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloItem
@@ -21,7 +22,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
         public override void Inserir()
         {
-            TelaItemForm telaItem = new TelaItemForm();
+            TelaItemForm telaItem = new TelaItemForm(repositorioItem.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaItem.ShowDialog();
 
@@ -30,7 +31,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 Item novoItem = telaItem.ObterItem();
 
                 repositorioItem.Inserir(novoItem);
-
             }
 
             CarregarItens();
@@ -47,7 +47,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 return;
             }
 
-            TelaItemForm telaItem = new TelaItemForm();
+            TelaItemForm telaItem = new TelaItemForm(repositorioItem.SelecionarTodos());
 
             telaItem.ConfigurarValoresNaTela(itemSelecionado);
 
@@ -74,11 +74,18 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item {itemSelecionado.nome}?",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item \"{itemSelecionado.nome}\"?",
              "Exclusão de Item", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                if (itemSelecionado.listaTemas.Count() > 0)
+                {
+                    MessageBox.Show("Exclusão inválida! Item está em um tema(s)", "Exclusão de tema",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+
                 repositorioItem.Excluir(itemSelecionado);
             }
 

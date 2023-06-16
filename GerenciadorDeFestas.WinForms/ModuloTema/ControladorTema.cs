@@ -1,6 +1,8 @@
-﻿using GerenciadorDeFestas.Dominio.ModuloItem;
+﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.Dominio.ModuloItem;
 using GerenciadorDeFestas.Dominio.ModuloTema;
 using GerenciadorDeFestas.WinForms.Compartilhado;
+using GerenciadorDeFestas.WinForms.ModuloCliente;
 
 namespace GerenciadorDeFestas.WinForms.ModuloTema
 {
@@ -10,6 +12,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         private IRepositorioTema repositorioTema;
         private IRepositorioItem repositorioItem;
         private TabelaTemaControl tabelaTema;
+        private TabelaListagemItensControl tabelaListagem;
 
 
         public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorioItem)
@@ -24,6 +27,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
         public override string ToolTipExcluir => "Excluir tema existente";
 
+        public override bool ListagemHabilitado => true;
+
         public override void Inserir()
         {
             TelaTemaForm telaTema = new TelaTemaForm(repositorioTema.SelecionarTodos(), repositorioItem.SelecionarTodos());
@@ -33,6 +38,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Tema tema = telaTema.ObterTema();
+
+                for (int i = 0; i < tema.listaItens.Count(); i++)
+                {
+                    tema.listaItens[i].listaTemas.Add(tema);
+                }
 
                 tema.CalcularValor();
 
@@ -86,15 +96,52 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o tema {tema.nome}?", "Exclusão de temas",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o tema \"{tema.nome}\"?", "Exclusão de temas",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                if (tema.listaAlugueis.Count() > 0)
+                {
+                    MessageBox.Show("Exclusão inválida! Tema possui aluguel(éis)", "Exclusão de temas",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+
+                for (int i = 0; i < tema.listaItens.Count(); i++)
+                {
+                    tema.listaItens[i].listaTemas.Remove(tema);
+                }
+
                 repositorioTema.Excluir(tema);
             }
 
             CarregarTemas();
+        }
+
+        public override void Listar()
+        {
+            Tema tema = ObterTemaSelecionado();
+
+            TelaListagemItensForm telaListagem = new TelaListagemItensForm();
+
+            if (tabelaListagem == null)
+                tabelaListagem = new TabelaListagemItensControl();
+
+            if (tema == null)
+            {
+                MessageBox.Show($"Selecione um tema primeiro!",
+                    "Listagem de itens",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            telaListagem.SetarNome(tema);
+
+            telaListagem.CarregarLista(tema.listaItens);
+
+            telaListagem.ShowDialog();
         }
 
         private Tema ObterTemaSelecionado()

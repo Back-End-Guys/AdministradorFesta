@@ -1,13 +1,20 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloItem;
+using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloItem
 {
     public partial class TelaItemForm : Form
     {
-        public TelaItemForm()
+        private List<Item> listaItens;
+
+        public TelaItemForm(List<Item> listaItens)
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
+            this.listaItens = listaItens;
         }
+
         public Item ObterItem()
         {
             int id = Convert.ToInt32(txtId.Text);
@@ -17,7 +24,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
             if (string.IsNullOrWhiteSpace(valorFormatado))
                 valorFormatado = "0";
-                
+
             decimal valor = Convert.ToDecimal(valorFormatado);
 
             Item item = new Item(nome, valor);
@@ -25,11 +32,12 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
             return item;
         }
+
         public void ConfigurarValoresNaTela(Item itemSelecionado)
         {
             txtId.Text = itemSelecionado.id.ToString();
             txtNome.Text = itemSelecionado.nome;
-            txtValor.Text = itemSelecionado.valor.ToString();
+            txtValor.Text = $"R$ {itemSelecionado.valor}";
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -43,6 +51,16 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 DialogResult = DialogResult.None;
                 return;
+            }
+
+            foreach (Item c in listaItens)
+            {
+                if (item.nome == c.nome && txtId.Text == "0")
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso.");
+
+                    DialogResult = DialogResult.None;
+                }
             }
         }
     }

@@ -1,12 +1,11 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.WinForms.Compartilhado;
-using GerenciadorDeFestas.WinForms.ModuloTema;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
     public class ControladorCliente : ControladorBase
     {
-        private TabelaListagemControl tabelaListagem;
+        private TabelaListagemAlugueisControl tabelaListagem;
         private IRepositorioCliente repositorioCliente;
         private TabelaClienteControl tabelaCliente;
 
@@ -23,7 +22,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
         public override string ToolTipListarAlugueis { get { return "Listar Alugueis do Cliente"; } }
 
-        public override bool ListarAlugueisHabilitado => true;
+        public override bool ListagemHabilitado => true;
 
         public override void Inserir()
         {
@@ -85,14 +84,15 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente {cliente.nome}?", "Exclusão de Clientes",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente \"{cliente.nome}\"?", "Exclusão de Clientes",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 if(cliente.alugueis.Count() > 0)
                 {
-                    MessageBox.Show("Exclusão inválida! Cliente possui aluguel(s)");
+                    MessageBox.Show("Exclusão inválida! Cliente possui aluguel(éis)", "Exclusão de cliente",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;  
                 }
 
@@ -102,14 +102,14 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             CarregarClientes();
         }
 
-        public override void ListarAlugueis()
+        public override void Listar()
         {
             Cliente cliente = ObterClienteSelecionado();
 
             TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
 
             if (tabelaListagem == null)
-                tabelaListagem = new TabelaListagemControl();
+                tabelaListagem = new TabelaListagemAlugueisControl();
 
             if (cliente == null)
             {
@@ -123,7 +123,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             telaListagemAlugueis.SetarNome(cliente);
 
-            tabelaListagem.AtualizarRegistros(cliente.alugueis);
+            telaListagemAlugueis.CarregarRegistros(cliente.alugueis);
 
             telaListagemAlugueis.ShowDialog();
         }

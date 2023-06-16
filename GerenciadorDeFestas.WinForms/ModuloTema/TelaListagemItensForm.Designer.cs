@@ -1,6 +1,6 @@
-﻿namespace GerenciadorDeFestas.WinForms.ModuloCliente
+﻿namespace GerenciadorDeFestas.WinForms.ModuloTema
 {
-    partial class TelaListagemAlugueisForm
+    partial class TelaListagemItensForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listagem = new TabelaListagemAlugueisControl();
+            listagem = new TabelaListagemItensControl();
             lblNome = new Label();
+            lblItens = new Label();
             SuspendLayout();
             // 
             // listagem
             // 
-            listagem.BackColor = SystemColors.ControlDark;
-            listagem.Dock = DockStyle.Bottom;
-            listagem.Location = new Point(0, 60);
-            listagem.Margin = new Padding(3, 5, 3, 5);
+            listagem.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
+            listagem.Location = new Point(-2, 100);
+            listagem.Margin = new Padding(4, 4, 4, 4);
             listagem.Name = "listagem";
-            listagem.Size = new Size(914, 503);
+            listagem.Size = new Size(803, 393);
             listagem.TabIndex = 0;
             // 
             // lblNome
@@ -49,28 +49,40 @@
             lblNome.Location = new Point(12, 9);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(95, 37);
-            lblNome.TabIndex = 1;
+            lblNome.TabIndex = 2;
             lblNome.Text = "Nome";
             // 
-            // TelaListagemAlugueisForm
+            // lblItens
             // 
+            lblItens.AutoSize = true;
+            lblItens.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblItens.Location = new Point(12, 57);
+            lblItens.Name = "lblItens";
+            lblItens.Size = new Size(152, 30);
+            lblItens.TabIndex = 3;
+            lblItens.Text = "Itens do tema :";
+            // 
+            // TelaListagemItensForm
+            // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 563);
+            ClientSize = new Size(800, 455);
+            Controls.Add(lblItens);
             Controls.Add(lblNome);
             Controls.Add(listagem);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "TelaListagemAlugueisForm";
+            Name = "TelaListagemItensForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tela listagem aluguel";
+            Text = "Tela Listagem Itens";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TabelaListagemAlugueisControl listagem;
+        private TabelaListagemItensControl listagem;
         private Label lblNome;
+        private Label lblItens;
     }
 }

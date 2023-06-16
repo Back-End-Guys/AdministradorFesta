@@ -21,7 +21,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             grid.Rows.Clear();
             foreach (Tema tema in temas)
             {
-                grid.Rows.Add(tema.id, tema.nome, tema.descricao,tema.valorTotal);
+                grid.Rows.Add(tema.id, tema.nome, tema.valorTotal);
             }
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
         }
@@ -42,12 +42,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "descricao",
-                    HeaderText = "Descrição"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "telefone",
+                    Name = "valorTotal",
                     HeaderText = "Valor total"
                 }
             };
