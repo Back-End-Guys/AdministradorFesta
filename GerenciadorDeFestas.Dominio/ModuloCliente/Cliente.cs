@@ -8,17 +8,17 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
     [Serializable]
     public class Cliente : EntidadeBase<Cliente>
     {
-        public List<Aluguel> alugueis;
         public string nome;
         public string telefone;
         public bool clienteAntigo;
+        public List<Aluguel> alugueis;
 
         public Cliente(string nome, string telefone, bool clienteAntigo)
         {
-            this.alugueis = new List<Aluguel>();
             this.nome = nome;
             this.telefone = telefone;
             this.clienteAntigo = clienteAntigo;
+            this.alugueis = new List<Aluguel>();
         }
 
         public Cliente()
@@ -44,7 +44,10 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
             if (string.IsNullOrEmpty(apenasDigitos))
                 erros.Add("O campo 'telefone' é obrigatório");
 
-            if(nome.Length < 5)
+            if (telefone.Length <= 14)
+                erros.Add("O campo 'telefone' é obrigatório");
+
+            if (nome.Length < 5)
                 erros.Add("O campo 'nome' deve ter no mínimo 5 caracteres");
             
 

@@ -26,7 +26,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
         public override void Inserir()
         {
-            TelaTemaForm telaTema = new TelaTemaForm(repositorioItem.SelecionarTodos());
+            TelaTemaForm telaTema = new TelaTemaForm(repositorioTema.SelecionarTodos(), repositorioItem.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
@@ -55,7 +55,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 return;
             }
 
-            TelaTemaForm telaTema = new TelaTemaForm(repositorioItem.SelecionarTodos());
+            TelaTemaForm telaTema = new TelaTemaForm(repositorioTema.SelecionarTodos(), repositorioItem.SelecionarTodos());
             telaTema.ConfigurarTela(temaSelecionado);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();

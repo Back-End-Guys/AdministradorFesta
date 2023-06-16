@@ -187,7 +187,6 @@
             btnListaAlugueis.Name = "btnListaAlugueis";
             btnListaAlugueis.Padding = new Padding(7, 7, 1, 7);
             btnListaAlugueis.Size = new Size(44, 50);
-            btnListaAlugueis.Text = "toolStripButton3";
             btnListaAlugueis.Click += btnListaAlugueis_Click;
             // 
             // btnPagamento
@@ -199,7 +198,6 @@
             btnPagamento.Name = "btnPagamento";
             btnPagamento.Padding = new Padding(7);
             btnPagamento.Size = new Size(50, 50);
-            btnPagamento.Text = "toolStripButton4";
             btnPagamento.Click += btnPagamento_Click;
             // 
             // btnEndereco
@@ -211,7 +209,6 @@
             btnEndereco.Name = "btnEndereco";
             btnEndereco.Padding = new Padding(7);
             btnEndereco.Size = new Size(50, 50);
-            btnEndereco.Text = "toolStripButton1";
             btnEndereco.Click += btnEndereco_Click;
             // 
             // toolStripSeparator2

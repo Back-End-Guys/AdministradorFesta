@@ -14,6 +14,8 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
 
         public virtual string ToolTipEndereco { get; }
 
+        public virtual string ToolTipListarAlugueis { get; }
+
         public virtual bool InserirHabilitado { get { return true; } }
 
         public virtual bool EditarHabilitado { get { return true; } }
@@ -23,6 +25,8 @@ namespace GerenciadorDeFestas.WinForms.Compartilhado
         public virtual bool PagamentoHabilitado { get { return false; } }
 
         public virtual bool EnderecoHabilitado { get { return false; } }
+
+        public virtual bool ListarAlugueisHabilitado { get { return false; } }
 
         public abstract void Inserir();
 

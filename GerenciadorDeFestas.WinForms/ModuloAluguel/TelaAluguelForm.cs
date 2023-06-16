@@ -29,8 +29,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             string nomeRua = txtRua.Text;
 
             Aluguel aluguel = new Aluguel(cliente, tema, data, horaInicio, horaFinal, Cep, numero, nomeRua);
-
-            cliente.alugueis.Add(aluguel);
             aluguel.id = id;
 
             if (tema != null)

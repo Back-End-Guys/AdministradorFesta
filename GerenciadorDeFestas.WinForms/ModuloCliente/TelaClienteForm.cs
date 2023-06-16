@@ -1,4 +1,5 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
+using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
@@ -6,12 +7,14 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
     public partial class TelaClienteForm : Form
     {
         private Cliente cliente;
+        List<Cliente> clientes;
 
         public TelaClienteForm(List<Cliente> clientes)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
+            this.clientes = clientes;
         }
 
         public Cliente ObterCliente()
@@ -50,6 +53,16 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 DialogResult = DialogResult.None;
                 return;
+            }
+
+            foreach (Cliente c in clientes)
+            {
+                if (cliente.nome == c.nome)
+                {
+                    MessageBox.Show("O nome já está em uso");
+
+                    DialogResult = DialogResult.None;
+                }
             }
         }
     }

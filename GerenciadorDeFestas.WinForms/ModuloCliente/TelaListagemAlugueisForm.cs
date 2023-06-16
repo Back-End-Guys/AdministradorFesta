@@ -1,13 +1,6 @@
-﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+using GerenciadorDeFestas.Dominio.ModuloAluguel;
+using GerenciadorDeFestas.Dominio.ModuloCliente;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
@@ -16,7 +9,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
         public TelaListagemAlugueisForm()
         {
             InitializeComponent();
-
         }
 
         public void SetarNome(Cliente clienteSelecionado)

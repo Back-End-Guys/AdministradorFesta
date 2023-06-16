@@ -17,6 +17,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
         public TabelaListagemControl()
         {
             InitializeComponent();
+
             ConfigurarColunas();
 
             grid.ConfigurarGridLinhas();
@@ -64,6 +65,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} Aluguel(s)");
         }
+
         public int ObterIdSelecionado()
         {
             int id;

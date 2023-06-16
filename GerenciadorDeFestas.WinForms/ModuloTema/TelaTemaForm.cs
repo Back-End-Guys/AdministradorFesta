@@ -8,20 +8,23 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
     public partial class TelaTemaForm : Form
     {
         RepositorioItemEmArquivo repositorioItem;
+        List<Tema> temas;
 
-        public TelaTemaForm(List<Item> itens)
+        public TelaTemaForm(List<Tema> temas,List<Item> itens)
         {
             InitializeComponent();
 
             ConfigurarListaItem(itens);
+            this.temas = temas;
         }
 
         public Tema ObterTema()
         {
             int id = Convert.ToInt32(txtId.Text);
             string nomeTema = txtNome.Text;
+            string descricao = txtDescricao.Text;
 
-            Tema tema = new Tema(nomeTema);
+            Tema tema = new Tema(nomeTema, descricao);
             tema.id = id;
 
             tema.listaItens.AddRange(chListItens.CheckedItems.Cast<Item>());
@@ -33,6 +36,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         {
             txtId.Text = temaSelecionado.id.ToString();
             txtNome.Text = temaSelecionado.nome;
+            txtDescricao.Text = temaSelecionado.descricao;
 
             int i = 0;
 
@@ -67,6 +71,16 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 DialogResult = DialogResult.None;
                 return;
+            }
+
+            foreach (Tema t in temas)
+            {
+                if (tema.descricao == t.descricao)
+                {
+                    MessageBox.Show("A descrição já está em uso");
+
+                    DialogResult = DialogResult.None;
+                }
             }
         }
     }

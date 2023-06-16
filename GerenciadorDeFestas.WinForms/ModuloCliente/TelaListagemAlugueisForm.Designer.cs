@@ -34,7 +34,7 @@
             // 
             // tabelaListagemControl1
             // 
-            tabelaListagemControl1.BackColor = Color.Transparent;
+            tabelaListagemControl1.BackColor = SystemColors.ControlDark;
             tabelaListagemControl1.Dock = DockStyle.Bottom;
             tabelaListagemControl1.Location = new Point(0, 73);
             tabelaListagemControl1.Name = "tabelaListagemControl1";

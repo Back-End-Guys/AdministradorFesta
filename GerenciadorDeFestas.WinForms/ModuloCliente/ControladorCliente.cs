@@ -1,5 +1,6 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.WinForms.Compartilhado;
+using GerenciadorDeFestas.WinForms.ModuloTema;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
@@ -19,6 +20,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
         public override string ToolTipEditar { get { return "Editar Cliente existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir Cliente existente"; } }
+
+        public override string ToolTipListarAlugueis { get { return "Listar Alugueis do Cliente"; } }
+
+        public override bool ListarAlugueisHabilitado => true;
 
         public override void Inserir()
         {
@@ -85,7 +90,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                if(cliente.alugueis != null)
+                if(cliente.alugueis.Count() > 0)
                 {
                     MessageBox.Show("Exclusão inválida! Cliente possui aluguel(s)");
                     return;  
@@ -97,29 +102,31 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             CarregarClientes();
         }
 
-        //public override void ListarAlugueis()
-        //{
+        public override void ListarAlugueis()
+        {
+            Cliente cliente = ObterClienteSelecionado();
 
-        //    Cliente cliente = ObterClienteSelecionado();
+            TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
 
-        //    if (cliente == null)
-        //    {
-        //        MessageBox.Show($"Selecione um cliente primeiro!",
-        //            "Listagem de alugueis",
-        //            MessageBoxButtons.OK,
-        //            MessageBoxIcon.Exclamation);
+            if (tabelaListagem == null)
+                tabelaListagem = new TabelaListagemControl();
 
-        //        return;
-        //    }
+            if (cliente == null)
+            {
+                MessageBox.Show($"Selecione um cliente primeiro!",
+                    "Listagem de alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
-        //    TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
+                return;
+            }
 
-        //    telaListagemAlugueis.SetarNome(cliente);
+            telaListagemAlugueis.SetarNome(cliente);
 
-        //    tabelaListagem.AtualizarRegistros(cliente.alugueis);
+            tabelaListagem.AtualizarRegistros(cliente.alugueis);
 
-        //    telaListagemAlugueis.ShowDialog();
-        //}
+            telaListagemAlugueis.ShowDialog();
+        }
 
         private Cliente ObterClienteSelecionado()
         {
@@ -150,6 +157,4 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             return "Cadastro de Clientes";
         }
     }
-
-
 }

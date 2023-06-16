@@ -80,6 +80,7 @@ namespace GerenciadorDeFestas.WinForms
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnPagamento.Enabled = controlador.PagamentoHabilitado;
             btnEndereco.Enabled = controlador.EnderecoHabilitado;
+            btnListaAlugueis.Enabled = controlador.ListarAlugueisHabilitado;
         }
 
         private void ConfigurarToolTips(ControladorBase controlador)
@@ -89,6 +90,7 @@ namespace GerenciadorDeFestas.WinForms
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnPagamento.ToolTipText = controlador.ToolTipPagamento;
             btnEndereco.ToolTipText = controlador.ToolTipEndereco;
+            btnListaAlugueis.ToolTipText = controlador.ToolTipListarAlugueis;
         }
 
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
