@@ -51,7 +51,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             foreach (Aluguel aluguel in alugueis)
             {
-                grid.Rows.Add(aluguel.id, aluguel.tema, aluguel.porcentagemPaga, aluguel.ValorPendente);
+                grid.Rows.Add(aluguel.id, aluguel.tema, aluguel.porcentagemPaga, aluguel.valorPendente);
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} Aluguel(éis)");

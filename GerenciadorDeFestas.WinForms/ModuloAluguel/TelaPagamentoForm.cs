@@ -16,7 +16,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             txtValorTotal.Text = $"R$ {aluguelSelecionado.valorTotal}";
             txtPorcentagem.Text = $"{aluguelSelecionado.porcentagemPaga.ToString("D")}%";
             txtValorPago.Text = $"R$ {aluguelSelecionado.valorPago}";
-            txtValorPendente.Text = $"R$ {aluguelSelecionado.ValorPendente}";
+            txtValorPendente.Text = $"R$ {aluguelSelecionado.valorPendente}";
         }
     }
 }

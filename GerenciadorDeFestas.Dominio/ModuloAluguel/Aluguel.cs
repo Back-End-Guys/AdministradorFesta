@@ -22,22 +22,38 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
 
         public decimal valorTotal;
         public decimal valorPago;
-        public decimal ValorPendente;
+        public decimal valorPendente;
 
         public bool pagamento;
         public PorcentagemPagaEnum porcentagemPaga;
 
-        public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua)
+        public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua/*, decimal valorTotal, decimal valorPago, decimal valorPendente, PorcentagemPagaEnum porcentagemPaga*/)
         {
             this.cliente = cliente;
             this.tema = tema;
             this.data = data;
             this.horaInicio = horaInicio;
             this.horaFinal = horaFinal;
-            Cep = cep;
+            this.Cep = cep;
             this.numero = numero;
             this.nomeRua = nomeRua;
+            //this.valorTotal = valorTotal;
+            //this.valorPago = valorPago;
+            //this.valorPendente = valorPendente;
+            //this.porcentagemPaga = porcentagemPaga;
         }
+
+        //public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua)
+        //{
+        //    this.cliente = cliente;
+        //    this.tema = tema;
+        //    this.data = data;
+        //    this.horaInicio = horaInicio;
+        //    this.horaFinal = horaFinal;
+        //    Cep = cep;
+        //    this.numero = numero;
+        //    this.nomeRua = nomeRua;
+        //}
 
         public Aluguel()
         {
@@ -54,15 +70,24 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.Cep = registroAtualizado.Cep;
             this.numero = registroAtualizado.numero;
             this.nomeRua = registroAtualizado.nomeRua;
-            this.ValorPendente = registroAtualizado.ValorPendente;
+            this.valorPendente = registroAtualizado.valorPendente;
             this.valorTotal = registroAtualizado.valorTotal;
             this.valorPago = registroAtualizado.valorPago;
+            this.porcentagemPaga = registroAtualizado.porcentagemPaga;
         }
 
         public void AtualizarPagamento(Aluguel aluguelAtualizado)
         {
             this.porcentagemPaga = aluguelAtualizado.porcentagemPaga;
         }
+
+        //public void AtualizarValoresDoPagamento(Aluguel aluguelSelecionado)
+        //{
+        //    this.valorTotal = aluguelSelecionado.valorTotal;
+        //    this.valorPago = aluguelSelecionado.valorPago;
+        //    this.valorPendente = aluguelSelecionado.valorPendente;
+        //    this.porcentagemPaga = aluguelSelecionado.porcentagemPaga;
+        //}
 
         public override string[] Validar()
         {
@@ -87,7 +112,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
 
             if (string.IsNullOrEmpty(numero))
                 erros.Add("O campo 'Número' é obrigatório");
-
 
             return erros.ToArray();
         }

@@ -48,10 +48,12 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
                 telaAluguel.CalcularValores();
 
+                //telaAluguel.ReceberValoresPagamento(aluguelSelecionado);
+
                 decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
 
-                aluguelSelecionado.ValorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.ValorPendente, porcentagemPaga);
-                aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.ValorPendente, porcentagemPaga);
+                aluguelSelecionado.valorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.valorPendente, porcentagemPaga);
+                aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.valorPendente, porcentagemPaga);
 
                 repositorioAluguel.Inserir(aluguelSelecionado);
             }
@@ -132,8 +134,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override void Pagamento()
         {
-            TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
-            telaAluguel.CalcularValores();
+            //TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
+            //telaAluguel.CalcularValores();
 
             TelaPagamentoForm telaPagamento = new TelaPagamentoForm();
             telaPagamento.Text = "Exibir informações de pagamento";

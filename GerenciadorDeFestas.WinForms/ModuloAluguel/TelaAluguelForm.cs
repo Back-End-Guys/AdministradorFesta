@@ -27,15 +27,33 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             string Cep = txtCep.Text;
             string numero = txtNumero.Text;
             string nomeRua = txtRua.Text;
+            //decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text.Replace("R$", ""));
+            //decimal valorPago = Convert.ToDecimal(txtValorPago.Text.Replace("R$", ""));
+            //decimal valorPendente = Convert.ToDecimal(txtValorPendente.Text.Replace("R$", ""));
+            //PorcentagemPagaEnum porcentagemPaga = (PorcentagemPagaEnum)cbPorcentagens.SelectedItem;
 
-            Aluguel aluguel = new Aluguel(cliente, tema, data, horaInicio, horaFinal, Cep, numero, nomeRua);
+
+            Aluguel aluguel = new Aluguel(cliente, tema, data, horaInicio, horaFinal, Cep, numero, nomeRua/*, valorTotal, valorPago, valorPendente, porcentagemPaga*/);
             aluguel.id = id;
 
             if (tema != null)
-                aluguel.ValorPendente = tema.valorTotal;
+                aluguel.valorPendente = tema.valorTotal;
 
             return aluguel;
         }
+
+        //public void ReceberValoresPagamento(Aluguel aluguelSelecionado)
+        //{
+        //    decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text.Replace("R$", ""));
+        //    decimal valorPago = Convert.ToDecimal(txtValorPago.Text.Replace("R$", ""));
+        //    decimal valorPendente = Convert.ToDecimal(txtValorPendente.Text.Replace("R$", ""));
+        //    PorcentagemPagaEnum porcentagemPaga = (PorcentagemPagaEnum)cbPorcentagens.SelectedItem;
+
+        //    aluguelSelecionado.valorTotal = valorTotal;
+        //    aluguelSelecionado.valorPago = valorPago;
+        //    aluguelSelecionado.valorPendente = valorPendente;
+        //    aluguelSelecionado.porcentagemPaga = porcentagemPaga;
+        //}
 
         public void ConfigurarTela(Aluguel aluguelSelecionado)
         {
@@ -51,7 +69,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             cbPorcentagens.Text = aluguelSelecionado.porcentagemPaga.ToString("D") + "%";
             txtValorTotal.Text = aluguelSelecionado.valorTotal.ToString();
             txtValorPago.Text = aluguelSelecionado.valorPago.ToString();
-            txtValorPendente.Text = aluguelSelecionado.ValorPendente.ToString();
+            txtValorPendente.Text = aluguelSelecionado.valorPendente.ToString();
         }
 
         public void ConfigurarComboBoxClientes(List<Cliente> clientes)
@@ -80,9 +98,12 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
 
-                if (string.IsNullOrEmpty(cbPorcentagens.Text))
-                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário adicionar um sinal na 'porcentagem paga'");
-
+                DialogResult = DialogResult.None;
+                return;
+            }
+            if (string.IsNullOrEmpty(cbPorcentagens.Text))
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("É necessário adicionar um sinal na 'porcentagem paga'");
                 DialogResult = DialogResult.None;
                 return;
             }
