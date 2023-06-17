@@ -43,14 +43,17 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Aluguel aluguel = telaAluguel.ObterAluguel();
+                Aluguel aluguelSelecionado = telaAluguel.ObterAluguel();
 
-                aluguel.cliente.alugueis.Add(aluguel);
-                aluguel.tema.listaAlugueis.Add(aluguel);
+                aluguelSelecionado.cliente.alugueis.Add(aluguelSelecionado);
+                aluguelSelecionado.tema.listaAlugueis.Add(aluguelSelecionado);
 
-                aluguel.ValorAhPagar = aluguel.CalcularValorAhPagar();
+                decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
 
-                repositorioAluguel.Inserir(aluguel);
+                aluguelSelecionado.ValorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.ValorPendente, porcentagemPaga);
+                aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.ValorPendente, porcentagemPaga);
+
+                repositorioAluguel.Inserir(aluguelSelecionado);
             }
 
             CarregarAlugueis();
@@ -71,7 +74,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             }
 
             TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
-            telaAluguel.ConfigurarValoresNaTela(aluguelSelecionado);
+            telaAluguel.ConfigurarTela(aluguelSelecionado);
 
             DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
 
@@ -138,10 +141,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                telaPagamento.PorcentagemPaga(aluguelSelecionado);
-
-                aluguelSelecionado.ValorAhPagar = aluguelSelecionado.CalcularValorAhPagar();
-
                 repositorioAluguel.AtualizarPagamentoJson(aluguelSelecionado.id, aluguelSelecionado);
 
                 aluguelSelecionado.FinalizarPagamento();

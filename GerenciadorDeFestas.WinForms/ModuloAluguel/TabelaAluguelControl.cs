@@ -26,9 +26,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                     aluguel.data.ToString("dd/MM/yyyy"), 
                     aluguel.horaInicio.ToString("HH:mm"), 
                     aluguel.horaFinal.ToString("HH:mm"), 
-                    aluguel.dataFechamento == new DateTime() ? "Em Aberto" :aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
-                    aluguel.porcentagemPaga.ToString("D") + "%", 
-                    aluguel.ValorAhPagar);
+                    aluguel.dataFechamento == new DateTime() ? " -" :aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
+                    aluguel.status);
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(éis)");
@@ -75,13 +74,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "pago",
-                    HeaderText = "% paga"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "valorAhPagar",
-                    HeaderText = "À pagar"
+                    Name = "status",
+                    HeaderText = "Status"
                 }
             };
 

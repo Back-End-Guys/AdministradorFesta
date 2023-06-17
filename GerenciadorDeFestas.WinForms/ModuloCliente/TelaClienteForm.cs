@@ -14,6 +14,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             this.ConfigurarDialog();
             this.clientes = clientes;
+            rdbNovo.Checked = true;
         }
 
         public Cliente ObterCliente()

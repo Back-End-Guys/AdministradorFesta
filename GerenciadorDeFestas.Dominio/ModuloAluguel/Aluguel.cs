@@ -9,17 +9,23 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
     {
         public Cliente cliente;
         public Tema tema;
+
         public DateTime data;
         public DateTime horaInicio;
         public DateTime horaFinal;
         public DateTime dataFechamento;
+
         public string Cep;
         public string numero;
         public string nomeRua;
+        public string status = "Aberto";
+
+        public decimal valorTotal;
+        public decimal valorPago;
+        public decimal ValorPendente;
 
         public bool pagamento;
-        public decimal ValorAhPagar;
-        public PorcentagemPagaEnum porcentagemPaga;        
+        public PorcentagemPagaEnum porcentagemPaga;
 
         public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua)
         {
@@ -48,7 +54,9 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.Cep = registroAtualizado.Cep;
             this.numero = registroAtualizado.numero;
             this.nomeRua = registroAtualizado.nomeRua;
-            this.ValorAhPagar = registroAtualizado.ValorAhPagar;
+            this.ValorPendente = registroAtualizado.ValorPendente;
+            this.valorTotal = registroAtualizado.valorTotal;
+            this.valorPago = registroAtualizado.valorPago;
         }
 
         public void AtualizarPagamento(Aluguel aluguelAtualizado)
@@ -68,39 +76,61 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
 
             string apenasDigitos = Regex.Replace(Cep, "[^0-9]", "");
 
-            if (string.IsNullOrEmpty(apenasDigitos))            
+            if (string.IsNullOrEmpty(apenasDigitos))
                 erros.Add("O campo 'Cep' é obrigatório");
 
             if (apenasDigitos.Length < 8)
                 erros.Add("'Cep' incompleto.");
 
-            if (string.IsNullOrEmpty(nomeRua))            
-                erros.Add("O campo 'Rua' é obrigatório");            
+            if (porcentagemPaga == null)
+                erros.Add("É necessário adicionar uma porcentagem paga");
 
-            if (string.IsNullOrEmpty(numero))            
+            if (string.IsNullOrEmpty(nomeRua))
+                erros.Add("O campo 'Rua' é obrigatório");
+
+            if (string.IsNullOrEmpty(numero))
                 erros.Add("O campo 'Número' é obrigatório");
-            
+
 
             return erros.ToArray();
         }
 
-        public decimal CalcularDesconto()
+        public decimal CalcularDesconto(decimal valorTotal)
         {
             if (cliente.clienteAntigo)
             {
-                return tema.valorTotal * (decimal)0.90;
+                return valorTotal * (decimal)0.90;
             }
 
-            return tema.valorTotal;
+            return valorTotal;
         }
 
-        public decimal CalcularValorAhPagar()
+        public decimal CalcularValorPendente(decimal valorTotal, decimal porcentagemPaga)
         {
-            decimal valorAhPagar = CalcularDesconto();
+            decimal valorPendente = CalcularDesconto(valorTotal);
 
-            valorAhPagar = valorAhPagar - (valorAhPagar * (decimal)porcentagemPaga / 100);
+            valorPendente = valorPendente - (valorPendente * (decimal)porcentagemPaga / 100);
 
-            return valorAhPagar;
+            return valorPendente;
+        }
+
+        public decimal CalcularValorPendente()
+        {
+            decimal valorPendente = CalcularDesconto(valorTotal);
+
+            valorPendente = valorPendente - (valorPendente * (decimal)porcentagemPaga / 100);
+
+            return valorPendente;
+        }
+
+        public decimal CalcularValorPago(decimal valorTotal, decimal porcentagemPaga)
+        {
+            return valorTotal * (decimal)porcentagemPaga / 100;
+        }
+
+        public decimal CalcularValorPago()
+        {
+            return valorTotal * (decimal)porcentagemPaga / 100;
         }
 
         public void FinalizarPagamento()
@@ -108,6 +138,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             if (porcentagemPaga == PorcentagemPagaEnum.Cem)
             {
                 dataFechamento = DateTime.Now.Date;
+                status = "Fechado";
             }
         }
     }
