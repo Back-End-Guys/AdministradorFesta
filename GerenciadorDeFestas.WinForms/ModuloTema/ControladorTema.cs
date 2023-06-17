@@ -14,7 +14,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         private TabelaTemaControl tabelaTema;
         private TabelaListagemItensControl tabelaListagem;
 
-
         public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorioItem)
         {
             this.repositorioTema = repositorioTema;
@@ -27,11 +26,14 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
 
         public override string ToolTipExcluir => "Excluir tema existente";
 
+        public override string ToolTipListarAlugueis => "Listar itens do tema";
+
         public override bool ListagemHabilitado => true;
 
         public override void Inserir()
         {
             TelaTemaForm telaTema = new TelaTemaForm(repositorioTema.SelecionarTodos(), repositorioItem.SelecionarTodos());
+            telaTema.Text = "Cadastrar tema existente";
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
@@ -66,6 +68,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             }
 
             TelaTemaForm telaTema = new TelaTemaForm(repositorioTema.SelecionarTodos(), repositorioItem.SelecionarTodos());
+            telaTema.Text = "Editar tema existente";
+
             telaTema.ConfigurarTela(temaSelecionado);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
@@ -89,21 +93,21 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             if (tema == null)
             {
                 MessageBox.Show($"Selecione um tema primeiro!",
-                    "Exclusão de tema",
+                    "Excluir tema existente",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o tema \"{tema.nome}\"?", "Exclusão de temas",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o tema \"{tema.nome}\"?", "Excluir tema existente",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 if (tema.listaAlugueis.Count() > 0)
                 {
-                    MessageBox.Show("Exclusão inválida! Tema possui aluguel(éis)", "Exclusão de temas",
+                    MessageBox.Show("Exclusão inválida! Tema possui aluguel(éis)", "Excluir tema existente",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;
                 }
@@ -124,6 +128,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             Tema tema = ObterTemaSelecionado();
 
             TelaListagemItensForm telaListagem = new TelaListagemItensForm();
+            telaListagem.Text = "Listagem de itens do tema";
 
             if (tabelaListagem == null)
                 tabelaListagem = new TabelaListagemItensControl();
@@ -149,7 +154,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             int id = tabelaTema.ObterIdSelecionado();
 
             return repositorioTema.SelecionarPorId(id);
-
         }
 
         private void CarregarTemas()

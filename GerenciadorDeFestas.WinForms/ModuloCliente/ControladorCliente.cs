@@ -14,19 +14,20 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             this.repositorioCliente = repositorioCliente;
         }
 
-        public override string ToolTipInserir { get { return "Inserir novo Cliente"; } }
+        public override string ToolTipInserir => "Inserir novo Cliente"; 
 
-        public override string ToolTipEditar { get { return "Editar Cliente existente"; } }
+        public override string ToolTipEditar => "Editar Cliente existente"; 
 
-        public override string ToolTipExcluir { get { return "Excluir Cliente existente"; } }
+        public override string ToolTipExcluir => "Excluir Cliente existente"; 
 
-        public override string ToolTipListarAlugueis { get { return "Listar Alugueis do Cliente"; } }
+        public override string ToolTipListarAlugueis => "Listar Alugueis do Cliente"; 
 
         public override bool ListagemHabilitado => true;
 
         public override void Inserir()
         {
             TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente.SelecionarTodos());
+            telaCliente.Text = "Cadastrar novo cliente";
 
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
@@ -55,6 +56,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             }
 
             TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente.SelecionarTodos());
+            telaCliente.Text = "Editar cliente existente";
+
             telaCliente.ConfigurarTela(clienteSelecionado);
 
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();
@@ -77,21 +80,21 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             if (cliente == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
-                    "Exclusão de Clientes",
+                    "Excluir cliente existente",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente \"{cliente.nome}\"?", "Exclusão de Clientes",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente \"{cliente.nome}\"?", "Excluir cliente existente",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 if(cliente.alugueis.Count() > 0)
                 {
-                    MessageBox.Show("Exclusão inválida! Cliente possui aluguel(éis)", "Exclusão de cliente",
+                    MessageBox.Show("Exclusão inválida! Cliente possui aluguel(éis)", "Excluir cliente existente",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;  
                 }
@@ -107,6 +110,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             Cliente cliente = ObterClienteSelecionado();
 
             TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
+            telaListagemAlugueis.Text = "Listagem de aluguéis do cliente";
 
             if (tabelaListagem == null)
                 tabelaListagem = new TabelaListagemAlugueisControl();
@@ -114,7 +118,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             if (cliente == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
-                    "Listagem de alugueis",
+                    "Listagem de aluguéis do cliente",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 

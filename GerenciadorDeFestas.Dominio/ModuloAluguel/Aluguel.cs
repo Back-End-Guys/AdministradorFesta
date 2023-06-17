@@ -82,9 +82,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             if (apenasDigitos.Length < 8)
                 erros.Add("'Cep' incompleto.");
 
-            if (porcentagemPaga == null)
-                erros.Add("É necessário adicionar uma porcentagem paga");
-
             if (string.IsNullOrEmpty(nomeRua))
                 erros.Add("O campo 'Rua' é obrigatório");
 

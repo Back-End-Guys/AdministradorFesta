@@ -41,6 +41,7 @@
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             btnListaAlugueis = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
             btnPagamento = new ToolStripButton();
             btnEndereco = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -48,7 +49,6 @@
             panelRegistros = new Panel();
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
-            toolStripSeparator3 = new ToolStripSeparator();
             menuBar.SuspendLayout();
             toolBar.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -82,7 +82,7 @@
             clientesMenuItem.Image = Properties.Resources.clientesIcon;
             clientesMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             clientesMenuItem.Name = "clientesMenuItem";
-            clientesMenuItem.Size = new Size(177, 38);
+            clientesMenuItem.Size = new Size(236, 38);
             clientesMenuItem.Text = "Cliente";
             clientesMenuItem.Click += clientesMenuItem_Click;
             // 
@@ -92,16 +92,16 @@
             TemasMenu.Image = Properties.Resources.tema1Icon;
             TemasMenu.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenu.Name = "TemasMenu";
-            TemasMenu.Size = new Size(177, 38);
-            TemasMenu.Text = "Temas";
+            TemasMenu.Size = new Size(236, 38);
+            TemasMenu.Text = "Tema";
             // 
             // ItensMenuItem
             // 
             ItensMenuItem.Image = Properties.Resources.itemIcon;
             ItensMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             ItensMenuItem.Name = "ItensMenuItem";
-            ItensMenuItem.Size = new Size(163, 38);
-            ItensMenuItem.Text = "Itens";
+            ItensMenuItem.Size = new Size(236, 38);
+            ItensMenuItem.Text = "Item";
             ItensMenuItem.Click += ItensMenuItem_Click;
             // 
             // TemasMenuItem
@@ -109,8 +109,8 @@
             TemasMenuItem.Image = Properties.Resources.tema2Icon;
             TemasMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenuItem.Name = "TemasMenuItem";
-            TemasMenuItem.Size = new Size(163, 38);
-            TemasMenuItem.Text = "Temas";
+            TemasMenuItem.Size = new Size(236, 38);
+            TemasMenuItem.Text = "Tema";
             TemasMenuItem.Click += TemasMenuItem_Click;
             // 
             // aluguelMenuItem
@@ -118,7 +118,7 @@
             aluguelMenuItem.Image = Properties.Resources.aluguelIcon;
             aluguelMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             aluguelMenuItem.Name = "aluguelMenuItem";
-            aluguelMenuItem.Size = new Size(177, 38);
+            aluguelMenuItem.Size = new Size(236, 38);
             aluguelMenuItem.Text = "Aluguel";
             aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
@@ -191,6 +191,11 @@
             btnListaAlugueis.Size = new Size(44, 50);
             btnListaAlugueis.Click += btnListaAlugueis_Click;
             // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 53);
+            // 
             // btnPagamento
             // 
             btnPagamento.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -254,11 +259,6 @@
             labelRodape.Margin = new Padding(16, 4, 0, 2);
             labelRodape.Name = "labelRodape";
             labelRodape.Size = new Size(0, 16);
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 53);
             // 
             // TelaPrincipalForm
             // 

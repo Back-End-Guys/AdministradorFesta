@@ -26,7 +26,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                     aluguel.data.ToString("dd/MM/yyyy"), 
                     aluguel.horaInicio.ToString("HH:mm"), 
                     aluguel.horaFinal.ToString("HH:mm"), 
-                    aluguel.dataFechamento == new DateTime() ? " -" :aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
+                    aluguel.dataFechamento == new DateTime() ? " -" : aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
                     aluguel.status);
             }
 

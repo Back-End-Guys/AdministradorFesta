@@ -79,6 +79,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                if (string.IsNullOrEmpty(cbPorcentagens.Text))
+                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário adicionar um sinal na 'porcentagem paga'");
+
                 DialogResult = DialogResult.None;
                 return;
             }
@@ -111,7 +115,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             CalcularValores();
         }
 
-        private void CalcularValores()
+        public void CalcularValores()
         {
             Aluguel aluguel = ObterAluguel();
 

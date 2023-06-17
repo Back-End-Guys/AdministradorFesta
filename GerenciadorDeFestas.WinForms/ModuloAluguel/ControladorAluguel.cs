@@ -38,6 +38,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public override void Inserir()
         {
             TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
+            telaAluguel.Text = "Cadastrar novo aluguel";
 
             DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
 
@@ -45,8 +46,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 Aluguel aluguelSelecionado = telaAluguel.ObterAluguel();
 
-                aluguelSelecionado.cliente.alugueis.Add(aluguelSelecionado);
-                aluguelSelecionado.tema.listaAlugueis.Add(aluguelSelecionado);
+                telaAluguel.CalcularValores();
 
                 decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
 
@@ -74,6 +74,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             }
 
             TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
+            telaAluguel.Text = "Editar aluguel existente";
             telaAluguel.ConfigurarTela(aluguelSelecionado);
 
             DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
@@ -95,14 +96,14 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             if (aluguel == null)
             {
                 MessageBox.Show($"Selecione um aluguel primeiro!",
-                    "Exclusão de Alugueis",
+                    "Excluir aluguel existente",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema}\"?", "Exclusão de Alugueis",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema}\"?", "Excluir aluguel existente",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -131,7 +132,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override void Pagamento()
         {
+            TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
+            telaAluguel.CalcularValores();
+
             TelaPagamentoForm telaPagamento = new TelaPagamentoForm();
+            telaPagamento.Text = "Exibir informações de pagamento";
 
             Aluguel aluguelSelecionado = ObterAluguelSelecionado();
 
@@ -152,6 +157,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public override void Endereco()
         {
             TelaEnderecoForm telaEndereco = new TelaEnderecoForm();
+            telaEndereco.Text = "Exibir informações de localização";
 
             Aluguel aluguelSelecionado = ObterAluguelSelecionado();
 

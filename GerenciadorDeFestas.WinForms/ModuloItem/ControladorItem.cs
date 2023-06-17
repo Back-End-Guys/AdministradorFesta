@@ -23,6 +23,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
         public override void Inserir()
         {
             TelaItemForm telaItem = new TelaItemForm(repositorioItem.SelecionarTodos());
+            telaItem.Text = "Cadastrar novo item";
 
             DialogResult opcaoEscolhida = telaItem.ShowDialog();
 
@@ -48,6 +49,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             }
 
             TelaItemForm telaItem = new TelaItemForm(repositorioItem.SelecionarTodos());
+            telaItem.Text = "Editar item existente";
 
             telaItem.ConfigurarValoresNaTela(itemSelecionado);
 
@@ -69,19 +71,19 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
             if (itemSelecionado == null)
             {
-                MessageBox.Show("Selecione um item primeiro", "Exclusão de Item", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um item primeiro", "Excluir item exitente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 return;
             }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item \"{itemSelecionado.nome}\"?",
-             "Exclusão de Item", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+             "Excluir item existente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 if (itemSelecionado.listaTemas.Count() > 0)
                 {
-                    MessageBox.Show("Exclusão inválida! Item está em um tema(s)", "Exclusão de tema",
+                    MessageBox.Show("Exclusão inválida! Item está em um tema(s)", "Excluir item existente",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;
                 }

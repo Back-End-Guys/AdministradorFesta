@@ -21,7 +21,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             grid.Rows.Clear();
             foreach (Tema tema in temas)
             {
-                grid.Rows.Add(tema.id, tema.nome, tema.valorTotal);
+                grid.Rows.Add(tema.id, tema.nome, "R$ " + tema.valorTotal);
             }
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
         }
