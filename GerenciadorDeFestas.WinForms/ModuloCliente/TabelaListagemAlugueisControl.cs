@@ -39,7 +39,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 {
                     Name = "valorAhPagar",
                     HeaderText = "À pagar"
-                }
+                },
             };
 
             grid.Columns.AddRange(colunas);
@@ -51,7 +51,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             foreach (Aluguel aluguel in alugueis)
             {
-                grid.Rows.Add(aluguel.id, aluguel.tema, aluguel.porcentagemPaga, aluguel.valorPendente);
+                grid.Rows.Add(aluguel.id, aluguel.tema, aluguel.porcentagemPaga, aluguel.valorPendente.ToString("F2"));
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} Aluguel(éis)");

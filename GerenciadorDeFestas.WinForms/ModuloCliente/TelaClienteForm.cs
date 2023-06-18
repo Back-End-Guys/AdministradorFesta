@@ -14,7 +14,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
             this.ConfigurarDialog();
             this.clientes = clientes;
-            rdbNovo.Checked = true;
         }
 
         public Cliente ObterCliente()
@@ -22,9 +21,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
             string telefone = txtTelefone.Text;
-            bool tipoCliente = rdbAntigo.Checked;
 
-            cliente = new Cliente(nome, telefone, tipoCliente);
+            cliente = new Cliente(nome, telefone);
             cliente.id = id;
 
             return cliente;
@@ -35,11 +33,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             txtId.Text = clienteSelecionado.id.ToString();
             txtNome.Text = clienteSelecionado.nome;
             txtTelefone.Text = clienteSelecionado.telefone;
-
-            if (clienteSelecionado.clienteAntigo == true)
-                rdbAntigo.Checked = true;
-
-            else rdbNovo.Checked = true;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

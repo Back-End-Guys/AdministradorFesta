@@ -39,19 +39,6 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             return aluguel;
         }
 
-        //public void ReceberValoresPagamento(Aluguel aluguelSelecionado)
-        //{
-        //    decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text.Replace("R$", ""));
-        //    decimal valorPago = Convert.ToDecimal(txtValorPago.Text.Replace("R$", ""));
-        //    decimal valorPendente = Convert.ToDecimal(txtValorPendente.Text.Replace("R$", ""));
-        //    PorcentagemPagaEnum porcentagemPaga = (PorcentagemPagaEnum)cbPorcentagens.SelectedItem;
-
-        //    aluguelSelecionado.valorTotal = valorTotal;
-        //    aluguelSelecionado.valorPago = valorPago;
-        //    aluguelSelecionado.valorPendente = valorPendente;
-        //    aluguelSelecionado.porcentagemPaga = porcentagemPaga;
-        //}
-
         public void ConfigurarTela(Aluguel aluguelSelecionado)
         {
             txtId.Text = aluguelSelecionado.id.ToString();
@@ -105,44 +92,5 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             //    return;
             //}
         }
-
-        //private void cbCliente_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    VerificarPreenchimento();
-        //}
-
-        //private void cbTema_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    Aluguel aluguel = ObterAluguel();
-
-        //    txtValorTotal.Text = $"R$ {aluguel.tema.valorTotal}";
-
-        //    VerificarPreenchimento();
-        //}
-
-        //private void VerificarPreenchimento()
-        //{
-        //    if (string.IsNullOrEmpty(cbCliente.Text) || string.IsNullOrEmpty(cbTema.Text))
-        //        cbPorcentagens.Enabled = false;
-
-        //    else cbPorcentagens.Enabled = true;
-        //}
-
-        //private void cbPorcentagens_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    CalcularValores();
-        //}
-
-        //public void CalcularValores()
-        //{
-        //    Aluguel aluguel = ObterAluguel();
-
-        //    decimal porcentagemFormatada = Convert.ToDecimal(cbPorcentagens.Text.Replace("%", ""));
-
-        //    decimal valorTotalFormatado = Convert.ToDecimal(txtValorTotal.Text.Replace("R$", ""));
-
-        //    txtValorPago.Text = $"R$ {aluguel.CalcularValorPago(valorTotalFormatado, porcentagemFormatada)}";
-        //    txtValorPendente.Text = $"R$ {aluguel.CalcularValorPendente(valorTotalFormatado, porcentagemFormatada)}";
-        //}
     }
 }

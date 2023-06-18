@@ -39,18 +39,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.nomeRua = nomeRua;
         }
 
-        //public Aluguel(Cliente cliente, Tema tema, DateTime data, DateTime horaInicio, DateTime horaFinal, string cep, string numero, string nomeRua)
-        //{
-        //    this.cliente = cliente;
-        //    this.tema = tema;
-        //    this.data = data;
-        //    this.horaInicio = horaInicio;
-        //    this.horaFinal = horaFinal;
-        //    Cep = cep;
-        //    this.numero = numero;
-        //    this.nomeRua = nomeRua;
-        //}
-
         public Aluguel()
         {
 
@@ -76,14 +64,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         {
             this.porcentagemPaga = aluguelAtualizado.porcentagemPaga;
         }
-
-        //public void AtualizarValoresDoPagamento(Aluguel aluguelSelecionado)
-        //{
-        //    this.valorTotal = aluguelSelecionado.valorTotal;
-        //    this.valorPago = aluguelSelecionado.valorPago;
-        //    this.valorPendente = aluguelSelecionado.valorPendente;
-        //    this.porcentagemPaga = aluguelSelecionado.porcentagemPaga;
-        //}
 
         public override string[] Validar()
         {
@@ -112,23 +92,42 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             return erros.ToArray();
         }
 
-        public decimal CalcularDesconto(decimal valorTotal)
+        public decimal CalcularDesconto()
         {
-            if (cliente.clienteAntigo)
+            int quantidadePedidos = cliente.alugueis.Count();
+
+            switch (quantidadePedidos)
             {
-                return valorTotal * (decimal)0.90;
+                case 1: return valorTotal * (decimal)0.975; break;
+                case 2: return valorTotal * (decimal)0.96; break;
+                case 3: return valorTotal * (decimal)0.945; break;
+                case 4: return valorTotal * (decimal)0.93; break;
+                case 5: return valorTotal * (decimal)0.915; break;
+                case 6: return valorTotal * (decimal)0.90; break;
+                case 7: return valorTotal * (decimal)0.885; break;
+                case 8: return valorTotal * (decimal)0.87; break;
             }
 
-            return valorTotal;
+            if (quantidadePedidos >= 9)
+            {
+                return valorTotal * (decimal)0.855;
+            }
+
+            return valorTotal * (decimal)0.99;
         }
 
         public decimal CalcularValorPendente()
         {
-            decimal valorPendente = CalcularDesconto(valorTotal);
+            valorPendente = valorTotal;
 
             valorPendente = valorPendente - (valorPendente * (decimal)porcentagemPaga / 100);
 
             return valorPendente;
+        }
+        
+        public decimal CalcularValorTotal()
+        {
+            return this.valorTotal = CalcularDesconto();
         }
 
         public decimal CalcularValorPago(decimal valorTotal, decimal porcentagemPaga)

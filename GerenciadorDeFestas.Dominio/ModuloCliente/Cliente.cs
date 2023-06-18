@@ -1,6 +1,7 @@
 ﻿using GerenciadorDeFestas.Dominio.Compartilhado;
 using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
 namespace GerenciadorDeFestas.Dominio.ModuloCliente
@@ -10,14 +11,12 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
     {
         public string nome;
         public string telefone;
-        public bool clienteAntigo;
         public List<Aluguel> alugueis;
 
-        public Cliente(string nome, string telefone, bool clienteAntigo)
+        public Cliente(string nome, string telefone)
         {
             this.nome = nome;
             this.telefone = telefone;
-            this.clienteAntigo = clienteAntigo;
             this.alugueis = new List<Aluguel>();
         }
 
@@ -29,7 +28,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
         {
             this.nome = registroAtualizado.nome;
             this.telefone = registroAtualizado.telefone;
-            this.clienteAntigo = registroAtualizado.clienteAntigo;
         }
 
         public override string[] Validar()

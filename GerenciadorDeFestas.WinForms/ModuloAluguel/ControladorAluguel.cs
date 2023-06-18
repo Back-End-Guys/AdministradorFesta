@@ -46,14 +46,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 Aluguel aluguelSelecionado = telaAluguel.ObterAluguel();
 
-                //telaAluguel.CalcularValores();
+                aluguelSelecionado.CalcularValorTotal();
+                aluguelSelecionado.CalcularValorPendente();
 
-                //telaAluguel.ReceberValoresPagamento(aluguelSelecionado);
-
-                //decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
-
-                //aluguelSelecionado.valorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.valorPendente, porcentagemPaga);
-                //aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.valorPendente, porcentagemPaga);
+                aluguelSelecionado.cliente.alugueis.Add(aluguelSelecionado);
 
                 repositorioAluguel.Inserir(aluguelSelecionado);
             }
@@ -85,6 +81,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
+                aluguel.CalcularValorTotal();
+                aluguel.CalcularValorPendente();
+
                 repositorioAluguel.Editar(aluguel.id, aluguel);
             }
 
@@ -110,7 +109,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                for(int i = 0; i < aluguel.cliente.alugueis.Count(); i++)
+                for (int i = 0; i < aluguel.cliente.alugueis.Count(); i++)
                 {
                     if (aluguel.cliente.alugueis[i] == aluguel)
                     {
@@ -122,7 +121,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 {
                     if (aluguel.tema.listaAlugueis[i] == aluguel)
                     {
-                        aluguel.tema.listaAlugueis.Remove(aluguel.tema.listaAlugueis[i]);    
+                        aluguel.tema.listaAlugueis.Remove(aluguel.tema.listaAlugueis[i]);
                     }
                 }
 
@@ -134,13 +133,20 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override void Pagamento()
         {
-            //TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
-            //telaAluguel.CalcularValores();
-
             TelaPagamentoForm telaPagamento = new TelaPagamentoForm();
             telaPagamento.Text = "Exibir informações de pagamento";
 
             Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
 
             telaPagamento.ConfigurarTela(aluguelSelecionado);
 

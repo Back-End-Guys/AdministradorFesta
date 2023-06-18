@@ -29,8 +29,8 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                     aluguel.dataFechamento == new DateTime() ? " -" : aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
                     aluguel.status,
                     aluguel.porcentagemPaga.ToString("D"),
-                    aluguel.valorPendente.ToString(),
-                    aluguel.valorTotal);
+                    aluguel.valorPendente.ToString("F2"),
+                    aluguel.valorTotal.ToString("F2"));
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(éis)");
