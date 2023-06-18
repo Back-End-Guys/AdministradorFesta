@@ -51,19 +51,9 @@
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
-            txtValorPago = new TextBox();
-            label10 = new Label();
-            label11 = new Label();
-            txtValorTotal = new TextBox();
-            label12 = new Label();
-            txtValorPendente = new TextBox();
-            groupBox3 = new GroupBox();
-            cbPorcentagens = new ComboBox();
-            label13 = new Label();
             groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
             Localização.SuspendLayout();
-            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,7 +82,7 @@
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGravar.Location = new Point(354, 356);
+            btnGravar.Location = new Point(342, 302);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(88, 41);
             btnGravar.TabIndex = 8;
@@ -105,7 +95,7 @@
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(448, 356);
+            btnCancelar.Location = new Point(436, 302);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(88, 41);
             btnCancelar.TabIndex = 7;
@@ -140,7 +130,7 @@
             cbCliente.Name = "cbCliente";
             cbCliente.Size = new Size(136, 28);
             cbCliente.TabIndex = 13;
-            cbCliente.SelectedValueChanged += cbCliente_SelectedValueChanged;
+            //cbCliente.SelectedValueChanged += cbCliente_SelectedValueChanged;
             // 
             // cbTema
             // 
@@ -150,7 +140,6 @@
             cbTema.Name = "cbTema";
             cbTema.Size = new Size(136, 28);
             cbTema.TabIndex = 14;
-            cbTema.SelectedValueChanged += cbTema_SelectedValueChanged;
             // 
             // groupBox1
             // 
@@ -161,7 +150,7 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(20, 182);
+            groupBox1.Location = new Point(20, 181);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(252, 164);
             groupBox1.TabIndex = 15;
@@ -235,7 +224,7 @@
             Localização.Controls.Add(label8);
             Localização.Controls.Add(label7);
             Localização.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            Localização.Location = new Point(297, 182);
+            Localização.Location = new Point(293, 12);
             Localização.Name = "Localização";
             Localização.Size = new Size(240, 164);
             Localização.TabIndex = 16;
@@ -301,108 +290,6 @@
             label7.TabIndex = 0;
             label7.Text = "CEP :";
             // 
-            // txtValorPago
-            // 
-            txtValorPago.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPago.Location = new Point(101, 99);
-            txtValorPago.Name = "txtValorPago";
-            txtValorPago.ReadOnly = true;
-            txtValorPago.Size = new Size(116, 27);
-            txtValorPago.TabIndex = 18;
-            txtValorPago.Text = "R$0";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(40, 101);
-            label10.Name = "label10";
-            label10.Size = new Size(49, 20);
-            label10.TabIndex = 18;
-            label10.Text = "Pago :";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(42, 37);
-            label11.Name = "label11";
-            label11.Size = new Size(49, 20);
-            label11.TabIndex = 19;
-            label11.Text = "Total :";
-            // 
-            // txtValorTotal
-            // 
-            txtValorTotal.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorTotal.Location = new Point(101, 34);
-            txtValorTotal.Name = "txtValorTotal";
-            txtValorTotal.ReadOnly = true;
-            txtValorTotal.Size = new Size(116, 27);
-            txtValorTotal.TabIndex = 20;
-            txtValorTotal.Text = "R$0";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(9, 134);
-            label12.Name = "label12";
-            label12.Size = new Size(77, 20);
-            label12.TabIndex = 21;
-            label12.Text = "Pendente :";
-            // 
-            // txtValorPendente
-            // 
-            txtValorPendente.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPendente.Location = new Point(101, 131);
-            txtValorPendente.Name = "txtValorPendente";
-            txtValorPendente.ReadOnly = true;
-            txtValorPendente.Size = new Size(116, 27);
-            txtValorPendente.TabIndex = 22;
-            txtValorPendente.Text = "R$0";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(cbPorcentagens);
-            groupBox3.Controls.Add(label13);
-            groupBox3.Controls.Add(txtValorTotal);
-            groupBox3.Controls.Add(label12);
-            groupBox3.Controls.Add(txtValorPago);
-            groupBox3.Controls.Add(txtValorPendente);
-            groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(label11);
-            groupBox3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(297, 9);
-            groupBox3.Margin = new Padding(3, 2, 3, 2);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 2, 3, 2);
-            groupBox3.Size = new Size(240, 167);
-            groupBox3.TabIndex = 18;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Valores";
-            // 
-            // cbPorcentagens
-            // 
-            cbPorcentagens.Enabled = false;
-            cbPorcentagens.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cbPorcentagens.FormattingEnabled = true;
-            cbPorcentagens.Items.AddRange(new object[] { "40%", "45%", "50%", "100%" });
-            cbPorcentagens.Location = new Point(101, 66);
-            cbPorcentagens.Name = "cbPorcentagens";
-            cbPorcentagens.Size = new Size(116, 28);
-            cbPorcentagens.TabIndex = 19;
-            cbPorcentagens.SelectedValueChanged += cbPorcentagens_SelectedValueChanged;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(23, 69);
-            label13.Name = "label13";
-            label13.Size = new Size(64, 20);
-            label13.TabIndex = 23;
-            label13.Text = "% Paga :";
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(txtId);
@@ -425,9 +312,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(556, 406);
+            ClientSize = new Size(545, 366);
             Controls.Add(groupBox2);
-            Controls.Add(groupBox3);
             Controls.Add(Localização);
             Controls.Add(groupBox1);
             Controls.Add(btnGravar);
@@ -439,8 +325,6 @@
             groupBox1.PerformLayout();
             Localização.ResumeLayout(false);
             Localização.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -470,15 +354,6 @@
         private Label label8;
         private Label label7;
         private MaskedTextBox txtCep;
-        private Label label10;
-        private TextBox txtValorPago;
-        private Label label11;
-        private TextBox txtValorTotal;
-        private Label label12;
-        private TextBox txtValorPendente;
-        private GroupBox groupBox3;
-        private ComboBox cbPorcentagens;
-        private Label label13;
         private GroupBox groupBox2;
         private Label label14;
     }

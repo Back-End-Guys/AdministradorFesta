@@ -27,7 +27,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                     aluguel.horaInicio.ToString("HH:mm"), 
                     aluguel.horaFinal.ToString("HH:mm"), 
                     aluguel.dataFechamento == new DateTime() ? " -" : aluguel.dataFechamento.ToString("dd/MM/yyyy"), 
-                    aluguel.status);
+                    aluguel.status,
+                    aluguel.porcentagemPaga.ToString("D"),
+                    aluguel.valorPendente.ToString(),
+                    aluguel.valorTotal);
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(éis)");
@@ -76,7 +79,22 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 {
                     Name = "status",
                     HeaderText = "Status"
-                }
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "porcentagem",
+                    HeaderText = "% Paga"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "valorPendente",
+                    HeaderText = "Valor Pendente"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "valorTotal",
+                    HeaderText = "Valor Total"
+                },
             };
 
             grid.Columns.AddRange(colunas);

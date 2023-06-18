@@ -46,14 +46,14 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             {
                 Aluguel aluguelSelecionado = telaAluguel.ObterAluguel();
 
-                telaAluguel.CalcularValores();
+                //telaAluguel.CalcularValores();
 
                 //telaAluguel.ReceberValoresPagamento(aluguelSelecionado);
 
-                decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
+                //decimal porcentagemPaga = Convert.ToDecimal(aluguelSelecionado.porcentagemPaga);
 
-                aluguelSelecionado.valorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.valorPendente, porcentagemPaga);
-                aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.valorPendente, porcentagemPaga);
+                //aluguelSelecionado.valorPendente = aluguelSelecionado.CalcularValorPendente(aluguelSelecionado.valorPendente, porcentagemPaga);
+                //aluguelSelecionado.valorPago = aluguelSelecionado.CalcularValorPago(aluguelSelecionado.valorPendente, porcentagemPaga);
 
                 repositorioAluguel.Inserir(aluguelSelecionado);
             }
@@ -148,6 +148,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                telaPagamento.PorcentagemPaga(aluguelSelecionado);
+
+                aluguelSelecionado.valorPendente = aluguelSelecionado.CalcularValorPendente();
+
                 repositorioAluguel.AtualizarPagamentoJson(aluguelSelecionado.id, aluguelSelecionado);
 
                 aluguelSelecionado.FinalizarPagamento();

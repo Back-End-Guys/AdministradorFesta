@@ -28,125 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label13 = new Label();
-            txtValorTotal = new TextBox();
-            label12 = new Label();
-            txtValorPago = new TextBox();
-            txtValorPendente = new TextBox();
-            label10 = new Label();
-            label11 = new Label();
-            txtPorcentagem = new TextBox();
             button1 = new Button();
+            label13 = new Label();
+            rdbQuarenta = new RadioButton();
+            rdbCinquenta = new RadioButton();
+            rdbCem = new RadioButton();
             SuspendLayout();
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(41, 77);
-            label13.Name = "label13";
-            label13.Size = new Size(83, 25);
-            label13.TabIndex = 31;
-            label13.Text = "% Paga :";
-            // 
-            // txtValorTotal
-            // 
-            txtValorTotal.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorTotal.Location = new Point(130, 30);
-            txtValorTotal.Margin = new Padding(3, 4, 3, 4);
-            txtValorTotal.Name = "txtValorTotal";
-            txtValorTotal.ReadOnly = true;
-            txtValorTotal.Size = new Size(132, 32);
-            txtValorTotal.TabIndex = 28;
-            txtValorTotal.Text = "R$ ";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(25, 163);
-            label12.Name = "label12";
-            label12.Size = new Size(100, 25);
-            label12.TabIndex = 29;
-            label12.Text = "Pendente :";
-            // 
-            // txtValorPago
-            // 
-            txtValorPago.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPago.Location = new Point(130, 117);
-            txtValorPago.Margin = new Padding(3, 4, 3, 4);
-            txtValorPago.Name = "txtValorPago";
-            txtValorPago.ReadOnly = true;
-            txtValorPago.Size = new Size(132, 32);
-            txtValorPago.TabIndex = 24;
-            txtValorPago.Text = "R$ ";
-            // 
-            // txtValorPendente
-            // 
-            txtValorPendente.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPendente.Location = new Point(130, 160);
-            txtValorPendente.Margin = new Padding(3, 4, 3, 4);
-            txtValorPendente.Name = "txtValorPendente";
-            txtValorPendente.ReadOnly = true;
-            txtValorPendente.Size = new Size(132, 32);
-            txtValorPendente.TabIndex = 30;
-            txtValorPendente.Text = "R$ ";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(61, 120);
-            label10.Name = "label10";
-            label10.Size = new Size(63, 25);
-            label10.TabIndex = 25;
-            label10.Text = "Pago :";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(63, 34);
-            label11.Name = "label11";
-            label11.Size = new Size(61, 25);
-            label11.TabIndex = 27;
-            label11.Text = "Total :";
-            // 
-            // txtPorcentagem
-            // 
-            txtPorcentagem.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPorcentagem.Location = new Point(130, 74);
-            txtPorcentagem.Margin = new Padding(3, 4, 3, 4);
-            txtPorcentagem.Name = "txtPorcentagem";
-            txtPorcentagem.ReadOnly = true;
-            txtPorcentagem.Size = new Size(132, 32);
-            txtPorcentagem.TabIndex = 32;
             // 
             // button1
             // 
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(130, 215);
+            button1.Location = new Point(166, 114);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(132, 44);
+            button1.Size = new Size(116, 33);
             button1.TabIndex = 33;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(12, 22);
+            label13.Name = "label13";
+            label13.Size = new Size(74, 21);
+            label13.TabIndex = 31;
+            label13.Text = "% Paga :";
+            // 
+            // rdbQuarenta
+            // 
+            rdbQuarenta.AutoSize = true;
+            rdbQuarenta.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rdbQuarenta.Location = new Point(15, 60);
+            rdbQuarenta.Name = "rdbQuarenta";
+            rdbQuarenta.Size = new Size(60, 25);
+            rdbQuarenta.TabIndex = 34;
+            rdbQuarenta.TabStop = true;
+            rdbQuarenta.Text = "40%";
+            rdbQuarenta.UseVisualStyleBackColor = true;
+            // 
+            // rdbCinquenta
+            // 
+            rdbCinquenta.AutoSize = true;
+            rdbCinquenta.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rdbCinquenta.Location = new Point(111, 60);
+            rdbCinquenta.Name = "rdbCinquenta";
+            rdbCinquenta.Size = new Size(60, 25);
+            rdbCinquenta.TabIndex = 35;
+            rdbCinquenta.TabStop = true;
+            rdbCinquenta.Text = "50%";
+            rdbCinquenta.UseVisualStyleBackColor = true;
+            // 
+            // rdbCem
+            // 
+            rdbCem.AutoSize = true;
+            rdbCem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rdbCem.Location = new Point(213, 60);
+            rdbCem.Name = "rdbCem";
+            rdbCem.Size = new Size(69, 25);
+            rdbCem.TabIndex = 36;
+            rdbCem.TabStop = true;
+            rdbCem.Text = "100%";
+            rdbCem.UseVisualStyleBackColor = true;
+            // 
             // TelaPagamentoForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(333, 284);
+            ClientSize = new Size(291, 163);
+            Controls.Add(rdbCem);
+            Controls.Add(rdbCinquenta);
+            Controls.Add(rdbQuarenta);
             Controls.Add(button1);
-            Controls.Add(txtPorcentagem);
             Controls.Add(label13);
-            Controls.Add(txtValorTotal);
-            Controls.Add(label12);
-            Controls.Add(txtValorPago);
-            Controls.Add(txtValorPendente);
-            Controls.Add(label10);
-            Controls.Add(label11);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "TelaPagamentoForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -156,14 +111,10 @@
         }
 
         #endregion
-        private Label label13;
-        private TextBox txtValorTotal;
-        private Label label12;
-        private TextBox txtValorPago;
-        private TextBox txtValorPendente;
-        private Label label10;
-        private Label label11;
-        private TextBox txtPorcentagem;
         private Button button1;
+        private Label label13;
+        private RadioButton rdbQuarenta;
+        private RadioButton rdbCinquenta;
+        private RadioButton rdbCem;
     }
 }
