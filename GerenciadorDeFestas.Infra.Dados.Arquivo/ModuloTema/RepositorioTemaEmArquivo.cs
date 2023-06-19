@@ -1,5 +1,4 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloTema;
-using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 
 namespace GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloTema
 {

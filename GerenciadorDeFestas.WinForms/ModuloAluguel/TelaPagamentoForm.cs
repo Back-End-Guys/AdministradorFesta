@@ -1,6 +1,4 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloAluguel;
-using GerenciadorDeFestas.Dominio.ModuloCliente;
-using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 {
@@ -11,6 +9,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             this.ConfigurarDialog();
             InitializeComponent();
         }
+
         public PorcentagemPagaEnum PorcentagemPaga(Aluguel aluguelSelecionado)
         {
             if (rdbQuarenta.Checked)
@@ -24,6 +23,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
             return aluguelSelecionado.porcentagemPaga = 0;
         }
+
         public void ConfigurarTela(Aluguel aluguelSelecionado)
         {
             if (aluguelSelecionado.porcentagemPaga == PorcentagemPagaEnum.Quarenta)

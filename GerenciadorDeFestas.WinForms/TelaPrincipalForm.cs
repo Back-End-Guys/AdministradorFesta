@@ -1,14 +1,12 @@
-
+using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.Dominio.ModuloItem;
 using GerenciadorDeFestas.Dominio.ModuloTema;
-using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloAluguel;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloCliente;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloItem;
 using GerenciadorDeFestas.Infra.Dados.Arquivo.ModuloTema;
-using GerenciadorDeFestas.WinForms.Compartilhado;
 using GerenciadorDeFestas.WinForms.ModuloAluguel;
 using GerenciadorDeFestas.WinForms.ModuloCliente;
 using GerenciadorDeFestas.WinForms.ModuloItem;

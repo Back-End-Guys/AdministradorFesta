@@ -1,5 +1,4 @@
-﻿using GerenciadorDeFestas.Dominio.Compartilhado;
-using GerenciadorDeFestas.Dominio.ModuloCliente;
+﻿using GerenciadorDeFestas.Dominio.ModuloCliente;
 using GerenciadorDeFestas.Dominio.ModuloTema;
 using System.Text.RegularExpressions;
 
@@ -128,16 +127,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         public decimal CalcularValorTotal()
         {
             return this.valorTotal = CalcularDesconto();
-        }
-
-        public decimal CalcularValorPago(decimal valorTotal, decimal porcentagemPaga)
-        {
-            return valorTotal * (decimal)porcentagemPaga / 100;
-        }
-
-        public decimal CalcularValorPago()
-        {
-            return valorTotal * (decimal)porcentagemPaga / 100;
         }
 
         public void FinalizarPagamento()

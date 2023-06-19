@@ -1,1 +1,1 @@
-﻿
+﻿global using GerenciadorDeFestas.Dominio.Compartilhado;

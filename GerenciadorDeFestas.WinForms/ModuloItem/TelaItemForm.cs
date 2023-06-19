@@ -1,5 +1,4 @@
 ﻿using GerenciadorDeFestas.Dominio.ModuloItem;
-using GerenciadorDeFestas.WinForms.Compartilhado;
 
 namespace GerenciadorDeFestas.WinForms.ModuloItem
 {

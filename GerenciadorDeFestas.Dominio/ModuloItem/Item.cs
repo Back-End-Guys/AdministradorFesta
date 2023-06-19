@@ -1,5 +1,4 @@
-﻿using GerenciadorDeFestas.Dominio.Compartilhado;
-using GerenciadorDeFestas.Dominio.ModuloTema;
+﻿using GerenciadorDeFestas.Dominio.ModuloTema;
 
 namespace GerenciadorDeFestas.Dominio.ModuloItem
 {

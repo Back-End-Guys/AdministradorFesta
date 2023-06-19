@@ -1,1 +1,1 @@
-﻿
+﻿global using GerenciadorDeFestas.Infra.Dados.Arquivo.Compartilhado;

@@ -1,7 +1,4 @@
-﻿using GerenciadorDeFestas.Dominio.Compartilhado;
-using GerenciadorDeFestas.Dominio.ModuloAluguel;
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
+﻿using GerenciadorDeFestas.Dominio.ModuloAluguel;
 using System.Text.RegularExpressions;
 
 namespace GerenciadorDeFestas.Dominio.ModuloCliente
@@ -43,10 +40,10 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
                 erros.Add("O campo 'telefone' é obrigatório");
 
             if (telefone.Length <= 14)
-                erros.Add("O campo 'telefone' é obrigatório");
+                erros.Add("O campo 'telefone' precisa ter 14 dígitos");
 
-            if (nome.Length < 5)
-                erros.Add("O campo 'nome' deve ter no mínimo 5 caracteres");
+            if (nome.Length <= 3)
+                erros.Add("O campo 'nome' deve ter no mínimo 3 caracteres");
             
 
             return erros.ToArray();
