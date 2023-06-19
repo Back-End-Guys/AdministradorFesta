@@ -8,6 +8,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
     {
         public string nome;
         public string telefone;
+        public string celular;
         public List<Aluguel> alugueis;
 
         public Cliente(string nome, string telefone)
