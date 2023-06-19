@@ -124,16 +124,17 @@
             // 
             // cbCliente
             // 
+            cbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCliente.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbCliente.FormattingEnabled = true;
             cbCliente.Location = new Point(87, 79);
             cbCliente.Name = "cbCliente";
             cbCliente.Size = new Size(136, 28);
             cbCliente.TabIndex = 13;
-            //cbCliente.SelectedValueChanged += cbCliente_SelectedValueChanged;
             // 
             // cbTema
             // 
+            cbTema.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTema.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbTema.FormattingEnabled = true;
             cbTema.Location = new Point(87, 122);
