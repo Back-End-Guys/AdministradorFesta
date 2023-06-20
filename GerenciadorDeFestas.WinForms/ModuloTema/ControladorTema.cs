@@ -9,7 +9,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         private IRepositorioTema repositorioTema;
         private IRepositorioItem repositorioItem;
         private TabelaTemaControl tabelaTema;
-        private TabelaListagemItensControl tabelaListagem;
+        private ListagemItensControl listagem;
 
         public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorioItem)
         {
@@ -98,9 +98,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o tema \"{tema.nome}\"?", "Excluir tema existente",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (opcaoEscolhida == DialogResult.OK)
+            if (opcaoEscolhida == DialogResult.Yes)
             {
                 if (tema.listaAlugueis.Count() > 0)
                 {
@@ -124,11 +124,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         {
             Tema tema = ObterTemaSelecionado();
 
-            TelaListagemItensForm telaListagem = new TelaListagemItensForm();
+            ListagemItensForm telaListagem = new ListagemItensForm();
             telaListagem.Text = "Listagem de itens do tema";
 
-            if (tabelaListagem == null)
-                tabelaListagem = new TabelaListagemItensControl();
+            if (listagem == null)
+                listagem = new ListagemItensControl();
 
             if (tema == null)
             {
@@ -139,9 +139,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 return;
             }
 
-            telaListagem.SetarNome(tema);
+            telaListagem.SetNome(tema);
 
-            telaListagem.CarregarLista(tema.listaItens);
+            telaListagem.CarregarLista(tema.listaItens, tema.valorTotal);
 
             telaListagem.ShowDialog();
         }

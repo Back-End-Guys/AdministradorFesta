@@ -41,7 +41,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
 
             foreach (Item categoria in itens)
             {
-                grid.Rows.Add(categoria.id, categoria.nome, "R$ " + categoria.valor);
+                grid.Rows.Add(categoria.id, categoria.nome, categoria.valor.ToString("C"));
             }
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {itens.Count} item(ns)");

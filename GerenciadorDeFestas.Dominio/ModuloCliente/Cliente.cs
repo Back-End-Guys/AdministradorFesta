@@ -8,7 +8,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
     {
         public string nome;
         public string telefone;
-        public string celular;
         public List<Aluguel> alugueis;
 
         public Cliente(string nome, string telefone)
@@ -35,13 +34,13 @@ namespace GerenciadorDeFestas.Dominio.ModuloCliente
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
 
-            string apenasDigitos = Regex.Replace(telefone, "[^0-9]", "");
+            string telefoneApenasDigitos = Regex.Replace(telefone, "[^0-9]", "");
 
-            if (string.IsNullOrEmpty(apenasDigitos))
+            if (string.IsNullOrEmpty(telefoneApenasDigitos))
                 erros.Add("O campo 'telefone' é obrigatório");
 
-            if (telefone.Length <= 14)
-                erros.Add("O campo 'telefone' precisa ter 14 dígitos");
+            if (telefoneApenasDigitos.Length <= 10)
+                erros.Add("O campo 'telefone' está incompleto");
 
             if (nome.Length <= 3)
                 erros.Add("O campo 'nome' deve ter no mínimo 3 caracteres");

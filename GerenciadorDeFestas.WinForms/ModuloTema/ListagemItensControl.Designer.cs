@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeFestas.WinForms.ModuloTema
 {
-    partial class TabelaListagemItensControl
+    partial class ListagemItensControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,33 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lista = new ListBox();
+            lista = new ListView();
             SuspendLayout();
             // 
             // lista
             // 
-            lista.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lista.BorderStyle = BorderStyle.None;
-            lista.FormattingEnabled = true;
-            lista.ItemHeight = 20;
+            lista.Dock = DockStyle.Fill;
             lista.Location = new Point(0, 0);
             lista.Name = "lista";
-            lista.SelectionMode = SelectionMode.None;
-            lista.Size = new Size(706, 420);
+            lista.Size = new Size(706, 427);
             lista.TabIndex = 0;
+            lista.UseCompatibleStateImageBehavior = false;
             // 
-            // TabelaListagemItensControl
+            // ListagemItensControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lista);
-            Name = "TabelaListagemItensControl";
+            Name = "ListagemItensControl";
             Size = new Size(706, 427);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox lista;
+        private ListView lista;
     }
 }

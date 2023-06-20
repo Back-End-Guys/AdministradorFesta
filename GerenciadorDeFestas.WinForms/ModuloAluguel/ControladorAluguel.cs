@@ -103,10 +103,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema}\"?", "Excluir aluguel existente",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema.nome}\" do cliente \"{aluguel.cliente.nome}\"?", "Excluir aluguel existente",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (opcaoEscolhida == DialogResult.OK)
+            if (opcaoEscolhida == DialogResult.Yes)
             {
                 for (int i = 0; i < aluguel.cliente.alugueis.Count(); i++)
                 {
@@ -133,7 +133,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
         public override void Pagamento()
         {
             TelaPagamentoForm telaPagamento = new TelaPagamentoForm();
-            telaPagamento.Text = "Exibir informações de pagamento";
+            telaPagamento.Text = "Definir porcentagem paga";
 
             Aluguel aluguelSelecionado = ObterAluguelSelecionado();
 

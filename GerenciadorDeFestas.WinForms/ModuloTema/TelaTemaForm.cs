@@ -33,6 +33,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
         {
             txtId.Text = temaSelecionado.id.ToString();
             txtNome.Text = temaSelecionado.nome;
+            txtValor.Text = $"R$ {temaSelecionado.valorTotal}";
 
             int i = 0;
 

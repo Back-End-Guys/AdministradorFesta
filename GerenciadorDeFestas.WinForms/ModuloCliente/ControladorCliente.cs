@@ -4,7 +4,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
     public class ControladorCliente : ControladorBase
     {
-        private TabelaListagemAlugueisControl tabelaListagem;
+        private ListagemAlugueisControl tabelaListagem;
         private IRepositorioCliente repositorioCliente;
         private TabelaClienteControl tabelaCliente;
 
@@ -87,9 +87,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
             }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o cliente \"{cliente.nome}\"?", "Excluir cliente existente",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (opcaoEscolhida == DialogResult.OK)
+            if (opcaoEscolhida == DialogResult.Yes)
             {
                 if(cliente.alugueis.Count() > 0)
                 {
@@ -108,11 +108,18 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
         {
             Cliente cliente = ObterClienteSelecionado();
 
-            TelaListagemAlugueisForm telaListagemAlugueis = new TelaListagemAlugueisForm();
+            if (cliente.alugueis.Count() == 0)
+            {
+                MessageBox.Show($"O cliente \"{cliente.nome}\" não possui nenhum aluguel ainda.", "Listagem inexistente",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            ListagemAlugueisForm telaListagemAlugueis = new ListagemAlugueisForm();
             telaListagemAlugueis.Text = "Listagem de aluguéis do cliente";
 
             if (tabelaListagem == null)
-                tabelaListagem = new TabelaListagemAlugueisControl();
+                tabelaListagem = new ListagemAlugueisControl();
 
             if (cliente == null)
             {

@@ -75,9 +75,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloItem
             }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o item \"{itemSelecionado.nome}\"?",
-             "Excluir item existente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+             "Excluir item existente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (opcaoEscolhida == DialogResult.OK)
+            if (opcaoEscolhida == DialogResult.Yes)
             {
                 if (itemSelecionado.listaTemas.Count() > 0)
                 {

@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
-    partial class TabelaListagemAlugueisControl
+    partial class ListagemAlugueisControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,33 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            grid = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
+            lista = new ListView();
             SuspendLayout();
             // 
-            // grid
+            // lista
             // 
-            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid.Dock = DockStyle.Fill;
-            grid.Location = new Point(0, 0);
-            grid.Name = "grid";
-            grid.RowTemplate.Height = 25;
-            grid.Size = new Size(334, 310);
-            grid.TabIndex = 0;
+            lista.Dock = DockStyle.Fill;
+            lista.Location = new Point(0, 0);
+            lista.Name = "lista";
+            lista.Size = new Size(668, 395);
+            lista.TabIndex = 0;
+            lista.UseCompatibleStateImageBehavior = false;
             // 
-            // TabelaListagemControl
+            // ListagemAlugueisControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(grid);
-            Name = "TabelaListagemControl";
-            Size = new Size(334, 310);
-            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
+            Controls.Add(lista);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ListagemAlugueisControl";
+            Size = new Size(668, 395);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView grid;
+        private ListView lista;
     }
 }

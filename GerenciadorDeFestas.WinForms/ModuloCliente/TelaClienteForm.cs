@@ -57,5 +57,10 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
                 }
             }
         }
+
+        private void TelaClienteForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
             grid.Rows.Clear();
             foreach (Tema tema in temas)
             {
-                grid.Rows.Add(tema.id, tema.nome, "R$ " + tema.valorTotal);
+                grid.Rows.Add(tema.id, tema.nome, tema.valorTotal.ToString("C"), tema.listaItens.Count);
             }
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
         }
@@ -43,6 +43,11 @@ namespace GerenciadorDeFestas.WinForms.ModuloTema
                 {
                     Name = "valorTotal",
                     HeaderText = "Valor total"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "qntItens",
+                    HeaderText = "Quantidade de itens"
                 }
             };
 

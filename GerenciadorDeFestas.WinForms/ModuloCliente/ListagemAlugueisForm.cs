@@ -3,9 +3,9 @@ using GerenciadorDeFestas.Dominio.ModuloCliente;
 
 namespace GerenciadorDeFestas.WinForms.ModuloCliente
 {
-    public partial class TelaListagemAlugueisForm : Form
+    public partial class ListagemAlugueisForm : Form
     {
-        public TelaListagemAlugueisForm()
+        public ListagemAlugueisForm()
         {
             this.ConfigurarDialog();
             InitializeComponent();
@@ -18,7 +18,17 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
         public void CarregarRegistros(List<Aluguel> alugueis)
         {
-            listagem.AtualizarGrid(alugueis);
+            listaAlugueis.AtualizarListaAlugueis(alugueis);
+        }
+
+        private void btnOK_MouseEnter(object sender, EventArgs e)
+        {
+            btnOK.BackColor = Color.FromArgb(255, 218, 114);
+        }
+
+        private void btnOK_MouseLeave(object sender, EventArgs e)
+        {
+            btnOK.BackColor = SystemColors.Control;
         }
     }
 }
