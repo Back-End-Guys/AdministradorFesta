@@ -70,6 +70,16 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 return;
             }
 
+            if (aluguelSelecionado.status == "Fechado")
+            {
+                MessageBox.Show($"Não é possível editar um aluguel já concluído!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(), repositorioTema.SelecionarTodos());
             telaAluguel.Text = "Editar aluguel existente";
             telaAluguel.ConfigurarTela(aluguelSelecionado);
@@ -91,9 +101,9 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override void Excluir()
         {
-            Aluguel aluguel = ObterAluguelSelecionado();
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
 
-            if (aluguel == null)
+            if (aluguelSelecionado == null)
             {
                 MessageBox.Show($"Selecione um aluguel primeiro!",
                     "Excluir aluguel existente",
@@ -103,28 +113,38 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguel.tema.nome}\" do cliente \"{aluguel.cliente.nome}\"?", "Excluir aluguel existente",
+            if (aluguelSelecionado.status == "Aberto")
+            {
+                MessageBox.Show($"Não é possível excluir um aluguel ainda não concluído!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel \"{aluguelSelecionado.tema.nome}\" do cliente \"{aluguelSelecionado.cliente.nome}\"?", "Excluir aluguel existente",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.Yes)
             {
-                for (int i = 0; i < aluguel.cliente.alugueis.Count(); i++)
+                for (int i = 0; i < aluguelSelecionado.cliente.alugueis.Count(); i++)
                 {
-                    if (aluguel.cliente.alugueis[i] == aluguel)
+                    if (aluguelSelecionado.cliente.alugueis[i] == aluguelSelecionado)
                     {
-                        aluguel.cliente.alugueis.Remove(aluguel.cliente.alugueis[i]);
+                        aluguelSelecionado.cliente.alugueis.Remove(aluguelSelecionado.cliente.alugueis[i]);
                     }
                 }
 
-                for (int i = 0; i < aluguel.tema.listaAlugueis.Count(); i++)
+                for (int i = 0; i < aluguelSelecionado.tema.listaAlugueis.Count(); i++)
                 {
-                    if (aluguel.tema.listaAlugueis[i] == aluguel)
+                    if (aluguelSelecionado.tema.listaAlugueis[i] == aluguelSelecionado)
                     {
-                        aluguel.tema.listaAlugueis.Remove(aluguel.tema.listaAlugueis[i]);
+                        aluguelSelecionado.tema.listaAlugueis.Remove(aluguelSelecionado.tema.listaAlugueis[i]);
                     }
                 }
 
-                repositorioAluguel.Excluir(aluguel);
+                repositorioAluguel.Excluir(aluguelSelecionado);
             }
 
             CarregarAlugueis();
@@ -140,6 +160,16 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             if (aluguelSelecionado == null)
             {
                 MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            if (aluguelSelecionado.status == "Fechado")
+            {
+                MessageBox.Show($"Não é possível editar a porcentagem paga de um aluguel já concluído!",
                     "Edição de Alugueis",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);

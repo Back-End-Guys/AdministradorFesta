@@ -52,7 +52,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.horaFinal = registroAtualizado.horaFinal;
             this.Cep = registroAtualizado.Cep;
             this.numero = registroAtualizado.numero;
-            //this.nomeRua = registroAtualizado.nomeRua;
+            this.nomeRua = registroAtualizado.nomeRua;
             //this.valorPendente = registroAtualizado.valorPendente;
             //this.valorTotal = registroAtualizado.valorTotal;
             //this.valorPago = registroAtualizado.valorPago;
@@ -74,12 +74,12 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             if (tema == null)
                 erros.Add("O campo 'Tema' é obrigatório");
 
-            string apenasDigitos = Regex.Replace(Cep, "[^0-9]", "");
+            string cepApenasDigitos = Regex.Replace(Cep, "[^0-9]", "");
 
-            if (string.IsNullOrEmpty(apenasDigitos))
+            if (string.IsNullOrEmpty(cepApenasDigitos))
                 erros.Add("O campo 'Cep' é obrigatório");
 
-            if (apenasDigitos.Length < 8)
+            if (cepApenasDigitos.Length < 8)
                 erros.Add("'Cep' incompleto.");
 
             if (string.IsNullOrEmpty(nomeRua))
@@ -97,14 +97,14 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
 
             switch (quantidadePedidos)
             {
-                case 1: return valorTotal * (decimal)0.975; break;
-                case 2: return valorTotal * (decimal)0.96; break;
-                case 3: return valorTotal * (decimal)0.945; break;
-                case 4: return valorTotal * (decimal)0.93; break;
-                case 5: return valorTotal * (decimal)0.915; break;
-                case 6: return valorTotal * (decimal)0.90; break;
-                case 7: return valorTotal * (decimal)0.885; break;
-                case 8: return valorTotal * (decimal)0.87; break;
+                case 1: return valorTotal * (decimal)0.975; 
+                case 2: return valorTotal * (decimal)0.96;
+                case 3: return valorTotal * (decimal)0.945;
+                case 4: return valorTotal * (decimal)0.93;
+                case 5: return valorTotal * (decimal)0.915;
+                case 6: return valorTotal * (decimal)0.90;
+                case 7: return valorTotal * (decimal)0.885;
+                case 8: return valorTotal * (decimal)0.87;
             }
 
             if (quantidadePedidos >= 9)
