@@ -48,28 +48,30 @@
             // txtCliente
             // 
             txtCliente.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCliente.Location = new Point(246, 70);
+            txtCliente.Location = new Point(215, 52);
+            txtCliente.Margin = new Padding(3, 2, 3, 2);
             txtCliente.Name = "txtCliente";
             txtCliente.ReadOnly = true;
-            txtCliente.Size = new Size(176, 32);
+            txtCliente.Size = new Size(154, 27);
             txtCliente.TabIndex = 17;
             // 
             // txtId
             // 
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(246, 25);
+            txtId.Location = new Point(215, 19);
+            txtId.Margin = new Padding(3, 2, 3, 2);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(176, 32);
+            txtId.Size = new Size(154, 27);
             txtId.TabIndex = 16;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(154, 74);
+            label3.Location = new Point(138, 56);
             label3.Name = "label3";
-            label3.Size = new Size(80, 25);
+            label3.Size = new Size(62, 20);
             label3.TabIndex = 15;
             label3.Text = "Cliente :";
             // 
@@ -77,76 +79,80 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(195, 29);
+            label2.Location = new Point(169, 22);
             label2.Name = "label2";
-            label2.Size = new Size(39, 25);
+            label2.Size = new Size(31, 20);
             label2.TabIndex = 14;
             label2.Text = "ID :";
             // 
             // txtAlugueis
             // 
             txtAlugueis.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAlugueis.Location = new Point(246, 115);
+            txtAlugueis.Location = new Point(215, 86);
+            txtAlugueis.Margin = new Padding(3, 2, 3, 2);
             txtAlugueis.Name = "txtAlugueis";
             txtAlugueis.ReadOnly = true;
-            txtAlugueis.Size = new Size(176, 32);
+            txtAlugueis.Size = new Size(154, 27);
             txtAlugueis.TabIndex = 19;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 119);
+            label1.Location = new Point(26, 89);
             label1.Name = "label1";
-            label1.Size = new Size(222, 25);
+            label1.Size = new Size(174, 20);
             label1.TabIndex = 18;
             label1.Text = "Quantidade de aluguéis :";
             // 
             // txtDescontoPorAluguel
             // 
             txtDescontoPorAluguel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescontoPorAluguel.Location = new Point(246, 160);
+            txtDescontoPorAluguel.Location = new Point(215, 120);
+            txtDescontoPorAluguel.Margin = new Padding(3, 2, 3, 2);
             txtDescontoPorAluguel.Name = "txtDescontoPorAluguel";
             txtDescontoPorAluguel.ReadOnly = true;
-            txtDescontoPorAluguel.Size = new Size(176, 32);
+            txtDescontoPorAluguel.Size = new Size(154, 27);
             txtDescontoPorAluguel.TabIndex = 21;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(32, 164);
+            label4.Location = new Point(41, 123);
             label4.Name = "label4";
-            label4.Size = new Size(202, 25);
+            label4.Size = new Size(159, 20);
             label4.TabIndex = 20;
             label4.Text = "Desconto por aluguel :";
             // 
             // txtLimite
             // 
             txtLimite.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtLimite.Location = new Point(246, 250);
+            txtLimite.Location = new Point(215, 188);
+            txtLimite.Margin = new Padding(3, 2, 3, 2);
             txtLimite.Name = "txtLimite";
             txtLimite.ReadOnly = true;
-            txtLimite.Size = new Size(176, 32);
+            txtLimite.Size = new Size(154, 27);
             txtLimite.TabIndex = 23;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(33, 254);
+            label5.Location = new Point(41, 190);
             label5.Name = "label5";
-            label5.Size = new Size(201, 25);
+            label5.Size = new Size(159, 20);
             label5.TabIndex = 22;
             label5.Text = "Atingiu limite de 15%?";
             // 
             // txtDescontoPadrão
             // 
             txtDescontoPadrão.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescontoPadrão.Location = new Point(246, 205);
+            txtDescontoPadrão.Location = new Point(215, 154);
+            txtDescontoPadrão.Margin = new Padding(3, 2, 3, 2);
             txtDescontoPadrão.Name = "txtDescontoPadrão";
             txtDescontoPadrão.ReadOnly = true;
-            txtDescontoPadrão.Size = new Size(176, 32);
+            txtDescontoPadrão.Size = new Size(154, 27);
             txtDescontoPadrão.TabIndex = 25;
             txtDescontoPadrão.Text = "1%";
             // 
@@ -154,46 +160,48 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(69, 209);
+            label6.Location = new Point(69, 157);
             label6.Name = "label6";
-            label6.Size = new Size(165, 25);
+            label6.Size = new Size(131, 20);
             label6.TabIndex = 24;
             label6.Text = "Desconto padrão :";
             // 
             // txtDescontoFinal
             // 
             txtDescontoFinal.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescontoFinal.Location = new Point(246, 295);
+            txtDescontoFinal.Location = new Point(215, 221);
+            txtDescontoFinal.Margin = new Padding(3, 2, 3, 2);
             txtDescontoFinal.Name = "txtDescontoFinal";
             txtDescontoFinal.ReadOnly = true;
-            txtDescontoFinal.Size = new Size(176, 32);
+            txtDescontoFinal.Size = new Size(154, 27);
             txtDescontoFinal.TabIndex = 27;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(100, 299);
+            label7.Location = new Point(88, 224);
             label7.Name = "label7";
-            label7.Size = new Size(134, 25);
+            label7.Size = new Size(112, 20);
             label7.TabIndex = 26;
-            label7.Text = "Deconto final :";
+            label7.Text = "Desconto final :";
             // 
             // button1
             // 
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(246, 355);
+            button1.Location = new Point(215, 266);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(176, 44);
+            button1.Size = new Size(154, 33);
             button1.TabIndex = 28;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = true;
             // 
             // TelaDescontoForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(479, 420);
+            ClientSize = new Size(419, 315);
             Controls.Add(button1);
             Controls.Add(txtDescontoFinal);
             Controls.Add(label7);
@@ -209,6 +217,7 @@
             Controls.Add(txtId);
             Controls.Add(label3);
             Controls.Add(label2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "TelaDescontoForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

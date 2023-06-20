@@ -53,6 +53,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
                 aluguelSelecionado.CalcularValorPendente();
 
                 aluguelSelecionado.cliente.alugueis.Add(aluguelSelecionado);
+                aluguelSelecionado.tema.listaAlugueis.Add(aluguelSelecionado);
 
                 repositorioAluguel.Inserir(aluguelSelecionado);
             }
