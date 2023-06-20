@@ -79,6 +79,7 @@ namespace GerenciadorDeFestas.WinForms
             btnPagamento.Enabled = controlador.PagamentoHabilitado;
             btnEndereco.Enabled = controlador.EnderecoHabilitado;
             btnListaAlugueis.Enabled = controlador.ListagemHabilitado;
+            btnDesconto.Enabled = controlador.DescontoHabilitado;
         }
 
         private void ConfigurarToolTips(ControladorBase controlador)
@@ -89,6 +90,7 @@ namespace GerenciadorDeFestas.WinForms
             btnPagamento.ToolTipText = controlador.ToolTipPagamento;
             btnEndereco.ToolTipText = controlador.ToolTipEndereco;
             btnListaAlugueis.ToolTipText = controlador.ToolTipListarAlugueis;
+            btnDesconto.ToolTipText = controlador.ToolTipDesconto;
         }
 
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
@@ -156,6 +158,11 @@ namespace GerenciadorDeFestas.WinForms
         private void btnListaAlugueis_Click(object sender, EventArgs e)
         {
             controlador.Listar();
+        }
+
+        private void btnDesconto_Click(object sender, EventArgs e)
+        {
+            controlador.Desconto();
         }
     }
 }

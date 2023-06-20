@@ -30,9 +30,13 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
 
         public override string ToolTipEndereco => "Endereço Aluguel";
 
+        public override string ToolTipDesconto => "Aplicar Desconto Aluguel";
+
         public override bool PagamentoHabilitado => true;
 
         public override bool EnderecoHabilitado => true;
+
+        public override bool DescontoHabilitado => true;
 
         public override void Inserir()
         {
@@ -205,6 +209,19 @@ namespace GerenciadorDeFestas.WinForms.ModuloAluguel
             telaEndereco.ConfigurarTela(aluguelSelecionado);
 
             telaEndereco.ShowDialog();
+        }
+
+        public override void Desconto()
+        {
+
+            TelaDescontoForm telaDesconto = new TelaDescontoForm();
+            telaDesconto.Text = "Aplicar desconto ao aluguel";
+
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            telaDesconto.ConfigurarTela(aluguelSelecionado);
+
+            telaDesconto.ShowDialog();
         }
 
         private Aluguel ObterAluguelSelecionado()

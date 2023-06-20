@@ -22,6 +22,7 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
         public decimal valorTotal;
         public decimal valorPago;
         public decimal valorPendente;
+        public decimal desconto;
 
         public bool pagamento;
         public PorcentagemPagaEnum porcentagemPaga;
@@ -53,10 +54,6 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             this.Cep = registroAtualizado.Cep;
             this.numero = registroAtualizado.numero;
             this.nomeRua = registroAtualizado.nomeRua;
-            //this.valorPendente = registroAtualizado.valorPendente;
-            //this.valorTotal = registroAtualizado.valorTotal;
-            //this.valorPago = registroAtualizado.valorPago;
-            //this.porcentagemPaga = registroAtualizado.porcentagemPaga;
         }
 
         public void AtualizarPagamento(Aluguel aluguelAtualizado)
@@ -113,6 +110,11 @@ namespace GerenciadorDeFestas.Dominio.ModuloAluguel
             }
 
             return valorTotal * (decimal)0.99;
+        }
+
+        public bool Limite()
+        {
+            return desconto == (decimal)0.15;
         }
 
         public decimal CalcularValorPendente()

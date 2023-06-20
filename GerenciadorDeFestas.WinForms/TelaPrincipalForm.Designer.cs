@@ -42,6 +42,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             btnListaAlugueis = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
+            btnDesconto = new ToolStripButton();
             btnPagamento = new ToolStripButton();
             btnEndereco = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -82,7 +83,7 @@
             clientesMenuItem.Image = Properties.Resources.clientesIcon;
             clientesMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             clientesMenuItem.Name = "clientesMenuItem";
-            clientesMenuItem.Size = new Size(177, 38);
+            clientesMenuItem.Size = new Size(236, 38);
             clientesMenuItem.Text = "Cliente";
             clientesMenuItem.Click += clientesMenuItem_Click;
             // 
@@ -92,7 +93,7 @@
             TemasMenu.Image = Properties.Resources.tema1Icon;
             TemasMenu.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenu.Name = "TemasMenu";
-            TemasMenu.Size = new Size(177, 38);
+            TemasMenu.Size = new Size(236, 38);
             TemasMenu.Text = "Tema";
             // 
             // ItensMenuItem
@@ -100,7 +101,7 @@
             ItensMenuItem.Image = Properties.Resources.itemIcon;
             ItensMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             ItensMenuItem.Name = "ItensMenuItem";
-            ItensMenuItem.Size = new Size(155, 38);
+            ItensMenuItem.Size = new Size(236, 38);
             ItensMenuItem.Text = "Item";
             ItensMenuItem.Click += ItensMenuItem_Click;
             // 
@@ -109,7 +110,7 @@
             TemasMenuItem.Image = Properties.Resources.tema2Icon;
             TemasMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             TemasMenuItem.Name = "TemasMenuItem";
-            TemasMenuItem.Size = new Size(155, 38);
+            TemasMenuItem.Size = new Size(236, 38);
             TemasMenuItem.Text = "Tema";
             TemasMenuItem.Click += TemasMenuItem_Click;
             // 
@@ -118,7 +119,7 @@
             aluguelMenuItem.Image = Properties.Resources.aluguelIcon;
             aluguelMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             aluguelMenuItem.Name = "aluguelMenuItem";
-            aluguelMenuItem.Size = new Size(177, 38);
+            aluguelMenuItem.Size = new Size(236, 38);
             aluguelMenuItem.Text = "Aluguel";
             aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
@@ -128,7 +129,7 @@
             toolBar.Enabled = false;
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
-            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnListaAlugueis, toolStripSeparator3, btnPagamento, btnEndereco, toolStripSeparator2, labelTipoCadastro });
+            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnListaAlugueis, toolStripSeparator3, btnDesconto, btnPagamento, btnEndereco, toolStripSeparator2, labelTipoCadastro });
             toolBar.Location = new Point(0, 42);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
@@ -195,6 +196,17 @@
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(6, 53);
+            // 
+            // btnDesconto
+            // 
+            btnDesconto.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDesconto.Image = Properties.Resources.descontoIcon;
+            btnDesconto.ImageScaling = ToolStripItemImageScaling.None;
+            btnDesconto.ImageTransparentColor = Color.Magenta;
+            btnDesconto.Name = "btnDesconto";
+            btnDesconto.Padding = new Padding(7);
+            btnDesconto.Size = new Size(50, 50);
+            btnDesconto.Click += btnDesconto_Click;
             // 
             // btnPagamento
             // 
@@ -309,5 +321,6 @@
         private ToolStripButton btnEndereco;
         private ToolStripButton btnListaAlugueis;
         private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton btnDesconto;
     }
 }

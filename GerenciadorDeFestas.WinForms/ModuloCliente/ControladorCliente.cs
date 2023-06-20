@@ -19,7 +19,7 @@ namespace GerenciadorDeFestas.WinForms.ModuloCliente
 
         public override string ToolTipExcluir => "Excluir Cliente existente"; 
 
-        public override string ToolTipListarAlugueis => "Listar Alugueis do Cliente"; 
+        public override string ToolTipListarAlugueis => "Listar Aluguéis do Cliente"; 
 
         public override bool ListagemHabilitado => true;
 
